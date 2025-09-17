@@ -1,0 +1,9 @@
+[submodule "external/hacktricks"]
+	path = external/hacktricks
+	url = https://github.com/HackTricks-wiki/hacktricks.git
+[submodule "external/pentest-grimoire"]
+	path = external/pentest-grimoire
+	url = https://github.com/n0m4d-eng/Security_Notes.git
+[submodule "external/payloads-all-the-things"]
+	path = external/payloads-all-the-things
+	url = https://github.com/swisskyrepo/PayloadsAllTheThings
