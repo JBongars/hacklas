@@ -7,3 +7,6 @@
 [submodule "external/payloads-all-the-things"]
 	path = external/payloads-all-the-things
 	url = https://github.com/swisskyrepo/PayloadsAllTheThings
+[submodule "external/twigonometry-cyber"]
+	path = external/twigonometry-cyber
+	url = https://github.com/Twigonometry/Cybersecurity-Notes.git
