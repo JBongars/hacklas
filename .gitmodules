@@ -10,3 +10,12 @@
 [submodule "external/twigonometry-cyber"]
 	path = external/twigonometry-cyber
 	url = https://github.com/Twigonometry/Cybersecurity-Notes.git
+[submodule "external/gtfobins"]
+	path = external/gtfobins
+	url = https://github.com/GTFOBins/GTFOBins.github.io
+[submodule "external/lolbas"]
+	path = external/lolbas
+	url = https://github.com/LOLBAS-Project/LOLBAS
+[submodule "external/cheatsheets"]
+	path = external/cheatsheets
+	url = https://github.com/rstacruz/cheatsheets

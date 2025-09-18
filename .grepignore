@@ -1,0 +1,110 @@
+# Binary file extensions
+*.exe
+*.dll
+*.so
+*.pyc
+*.zip
+*.tar
+*.gz
+*.bz2
+*.7z
+*.rar
+*.dmg
+*.iso
+*.deb
+*.rpm
+
+# Image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.ico
+*.tiff
+*.tif
+*.webp
+*.svg
+*.svgz
+
+# Font files
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.eot
+
+# Media files
+*.mp3
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.swf
+*.wav
+*.ogg
+
+# Certificate and security files
+*.cer
+*.crt
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Large generated/compiled files
+searchindex.js
+*.min.js
+*.min.css
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+Gemfile.lock
+
+# Directory patterns for binary content
+*/images/*
+*/assets/*.png
+*/assets/*.jpg
+*/assets/*.gif
+*/assets/*.svg
+*/fonts/*
+*/node_modules/*
+*/.git/*
+
+# Specific large binary files from your tree
+external/hacktricks/src/files/*
+external/hacktricks/theme/fonts/*
+external/payloads-all-the-things/*/Files/*
+external/pentest-grimoire/Writeups/HTB/Assets/*
+external/twigonometry-cyber/Attachments/*
+
+# Auto-generated documentation files
+*.bundle
+searchindex.*
+
+# Backup and temporary files that might be binary
+*.bak
+*.tmp
+*.temp
+*.cache
+
+# Office documents (binary formats)
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.pdf
+
+# Virtual machine and container files
+*.vmdk
+*.vdi
+*.qcow2
+*.img
