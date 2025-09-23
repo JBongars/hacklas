@@ -36,6 +36,7 @@ function init_note() {
 
 Author: Julien Bongars
 Date: $(date +'%Y-%m-%d %H:%M:%S')
+Path: $NOTE_LOCATION
 
 ---
 

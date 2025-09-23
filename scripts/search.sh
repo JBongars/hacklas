@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -eo pipefail
 
 VI=$(which nvim || which vim || which vi || which nano)
 
@@ -36,9 +36,8 @@ function search_filename() {
 		exit 1
 	fi
 	
-	find "$dir_path" -type f \( -name "*.md" -o -name "*.txt" -o -name "*.org" \) \
-		| fzf --multi --preview "bat --color=always {}" --preview-window=right:60% \
-		| xargs -o $VI
+	$VI "$(find "$dir_path" -type f \( -name "*.md" -o -name "*.txt" -o -name "*.org" \) \
+		| fzf --multi --preview "bat --color=always {}" --preview-window=right:60% )"
 }
 
 function search_content() {
@@ -51,14 +50,12 @@ function search_content() {
 		exit 1
 	fi
 	
-	rg "$search" "$dir_path" \
+	$VI "$(rg "$search" "$dir_path" \
 		--text \
 		--max-filesize 5M \
 		-l \
 		--ignore-file "${SCRIPT_DIR}/../.grepignore" \
-		| fzf --multi --preview "rg --color=always --context=3 '$search' {}" --preview-window=right:60% \
-		| xargs -o $VI 
-
+		| fzf --multi --preview "rg --color=always --context=3 '$search' {}" --preview-window=right:60% )"
 }
 
 # handle folder path
