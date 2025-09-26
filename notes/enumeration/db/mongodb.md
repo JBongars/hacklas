@@ -81,6 +81,22 @@ db.collection.count(); // Count documents
 db.collection.distinct("field"); // Unique values
 ```
 
+**Update admin password:**
+
+see:
+
+```js
+db.admin.updateOne(
+  { _id: ObjectId("61ce278f46e0fb0012d47ee4") },
+  {
+    $set: {
+      x_shadow:
+        "$6$3PQnfHW5kwahebAm$KNiatOJON1Imt4YUmYsaSArn3R.r0QIFcrpySrqbrRaAfBulrPsqQjc20.WNjgbhIo1In17yytuZDIVxpgAGc/",
+    },
+  },
+);
+```
+
 **Administrative Commands:**
 
 ```js

