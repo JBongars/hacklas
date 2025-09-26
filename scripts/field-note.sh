@@ -34,9 +34,9 @@ function init_note() {
         cat > "$file_path" <<EOF
 # $(basename "$NOTE_FILENAME" .md)
 
-Author: Julien Bongars
-Date: $(date +'%Y-%m-%d %H:%M:%S')
-Path: $NOTE_LOCATION
+**Author:** Julien Bongars  
+**Date:** $(date +'%Y-%m-%d %H:%M:%S')
+**Path:** `$NOTE_LOCATION`
 
 ---
 
