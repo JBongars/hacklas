@@ -17,7 +17,7 @@ fi
 
 SCRIPT_DIR="$(dirname "$0")"
 NOTE_FILENAME="${1:-$(date +'%Y%m%dT%H%M%S')-to-sort.md}"
-FOLDER_PATH=$(cd "${SCRIPT_DIR}/../notes" && pwd)
+FOLDER_PATH=$(cd "${SCRIPT_DIR}/.." && pwd)
 NOTE_LOCATION="$FOLDER_PATH/$NOTE_FILENAME"
 
 function init_note() {
