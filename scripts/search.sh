@@ -55,7 +55,7 @@ function search_content() {
 		--max-filesize 5M \
 		-l \
 		--ignore-file "${SCRIPT_DIR}/../.grepignore" \
-		| fzf --multi --preview "rg --color=always --context=3 '$search' {}" --preview-window=right:60% )"
+		| fzf --multi --preview "rg --color=always --context=20 '$search' {}" --preview-window=right:60% )"
 }
 
 # handle folder path
