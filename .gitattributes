@@ -1,1 +1,1 @@
-target/.embargo/** filter=git-crypt diff=git-crypt
+targets/.embargo/** filter=git-crypt diff=git-crypt
