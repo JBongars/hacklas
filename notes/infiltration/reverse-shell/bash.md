@@ -32,6 +32,19 @@ fg
 export TERM=xterm
 ```
 
+**HINT** If broken
+
+you can try to reset the terminal by going to `Terminal -> reset and clear` and then running the following
+
+```bash
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+reset
+export TERM=xterm
+
+# if above doesn't work
+stty rows 38 columns 116
+```
+
 **Method 2**
 
 ```bash
