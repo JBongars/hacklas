@@ -1,3 +1,7 @@
+# temp files
+*/.temp/*
+*/.tmp/*
+
 # Binary file extensions
 *.exe
 *.dll
