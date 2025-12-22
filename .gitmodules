@@ -22,3 +22,6 @@
 [submodule "external/gtfo-bins"]
 	path = external/gtfo-bins
 	url = https://github.com/GTFOBins/GTFOBins.github.io.git
+[submodule "external-tools/AutoRecon"]
+	path = external-tools/AutoRecon
+	url = https://github.com/AutoRecon/AutoRecon.git
