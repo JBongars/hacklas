@@ -32,7 +32,7 @@ rustscan
 # Run
 
 ```bash
-rustscan -a 10.129.192.27 --range 1-65535 --ulimit 5000 -- -Pn -oN rustscan.txt -sV --script vuln
+rustscan -a ${ADDRESS} --range 1-65535 --ulimit 5000 -- -Pn -oN rustscan.txt -sV --script vuln
 ```
 
 # Command Syntax

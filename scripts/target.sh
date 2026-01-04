@@ -39,13 +39,13 @@ link = https://
 **rustscan**
 
 ```bash
-
+rustscan -a "$IP_ADDRESS" -ulimit 5000 -- -sC -sV -oA "$ATTACK_FOLDER/nmap/quick"
 ```
 
 **nmap**
 
 ```bash
-
+nmap -sC -sV -p- -oA "$ATTACK_FOLDER/nmap/full" "$IP_ADDRESS"
 ```
 
 

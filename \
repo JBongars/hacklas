@@ -23,27 +23,6 @@ VHOST_LIST="/usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt"
 
 mkdir -p "$ATTACK_FOLDER"/{nmap,web,ftp,smb,nfs}
 
-# ============================================================================
-# NMAP SCANNING
-# ============================================================================
-run_nmap() {
-    log "Starting rustscan scan on $IP_ADDRESS"
-    
-    # Quick scan first for immediate results
-    # nmap -sC -sV --top-ports 1000 -oA "$ATTACK_FOLDER/nmap/quick" "$IP_ADDRESS"
-    
-    if [ ! -f "$ATTACK_FOLDER/nmap/quick" ] ; then
-        log "Starting quick port scan (backgrounded)"
-        # Quick scan first for immediate results
-        rustscan -a "$IP_ADDRESS" -ulimit 5000 -- -sC -sV -oA "$ATTACK_FOLDER/nmap/quick"
-    fi
-
-    # Full port scan in background
-    log "Starting full port scan (backgrounded)"
-    nmap -sC -sV -p- -oA "$ATTACK_FOLDER/nmap/full" "$IP_ADDRESS" &
-    FULL_NMAP_PID=$!
-}
-
 # Parse nmap greppable output for open ports
 get_open_ports() {
     local protocol="${1:-tcp}"
