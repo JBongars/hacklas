@@ -1,8 +1,8 @@
 # hashcat
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-11-05 14:29:11
-**Path:** 
+**Path:**
 
 ---
 
@@ -13,5 +13,3 @@
 echo "hash" > hash.txt
 hashcat -m 1400 hash.txt /usr/share/wordlists/rockyou.txt
 ```
-
-

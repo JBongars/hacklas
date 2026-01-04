@@ -1,8 +1,8 @@
 # git
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-10-13 05:20:35
-**Path:** 
+**Path:**
 
 ---
 
@@ -182,4 +182,3 @@ pip install git-dumper
 [-] Fetching http://pilgrimage.htb/.git/objects/f1/8fa9173e9f7c1b2f30f3d20c4a303e18d88548 [200]
 [-] Running git checkout .
 ```
-

@@ -1,6 +1,6 @@
 # whatweb
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-09-30 02:36:14
 **Path:**
 
@@ -146,7 +146,6 @@ HTTP Headers:
 ## Usage
 
 ```bash
-
 .$$$     $.                                   .$$$     $.
 $$$$     $$. .$$$  $$$ .$$$$$$.  .$$$$$$$$$$. $$$$     $$. .$$$$$$$. .$$$$$$.
 $ $$     $$$ $ $$  $$$ $ $$$$$$. $$$$$ $$$$$$ $ $$     $$$ $ $$   $$ $ $$$$$$.
@@ -294,5 +293,4 @@ EXAMPLE USAGE:
 * Scan for crossdomain policies in the Alexa Top 1000.
   ./whatweb -i plugin-development/alexa-top-100.txt \
   --url-suffix /crossdomain.xml -p crossdomain_xml
-
 ```

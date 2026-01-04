@@ -1,7 +1,7 @@
 # LDAP Enumeration
 
-**Author:** Julien Bongars  
-**Date:** 2025-09-24 23:55:48  
+**Author:** Julien Bongars\
+**Date:** 2025-09-24 23:55:48\
 **Path:** `notes/enumeration/ldap.md`
 
 ---

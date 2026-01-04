@@ -1,8 +1,8 @@
 # rustscan
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-10-13 20:56:27
-**Path:** 
+**Path:**
 
 ---
 
@@ -98,5 +98,3 @@ example-command -flag target
 # References
 
 https://github.com/bee-san/RustScan
-
-

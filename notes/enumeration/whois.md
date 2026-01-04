@@ -1,8 +1,8 @@
 # whois
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-12-14 23:05:08
-**Path:** 
+**Path:**
 
 ---
 
@@ -29,4 +29,3 @@ Administrative Contact: The person responsible for managing the domain.
 Technical Contact: The person handling technical issues related to the domain.
 Creation and Expiration Dates: When the domain was registered and when it's set to expire.
 Name Servers: Servers that translate the domain name into an IP address.
-

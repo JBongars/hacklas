@@ -1,6 +1,6 @@
 # mongodb
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-09-25 09:55:18
 **Path:**
 
@@ -124,10 +124,10 @@ db.collection.find({ $where: "function() { return ls('/etc') }" });
 ```js
 // Execute code via MapReduce (deprecated but sometimes available)
 db.collection.mapReduce(
-  function () {
+  function() {
     emit(1, ls("/etc"));
   },
-  function (key, values) {
+  function(key, values) {
     return values;
   },
   { out: { inline: 1 } },
@@ -171,7 +171,7 @@ var file = db.fs.files.findOne({ filename: "config.txt" });
 db.fs.chunks
   .find({ files_id: file._id })
   .sort({ n: 1 })
-  .forEach(function (chunk) {
+  .forEach(function(chunk) {
     print(chunk.data.toString());
   });
 ```

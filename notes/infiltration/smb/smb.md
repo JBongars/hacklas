@@ -1,14 +1,15 @@
 # smb
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2026-01-05 03:13:46
-**Path:** 
+**Path:**
 
 ---
 
 ## Linux Client - smbclient
 
 ### List Shares (Enumeration)
+
 ```bash
 # List shares on target
 smbclient -L //SERVER_IP -U htb-student
@@ -22,6 +23,7 @@ smbclient -L //SERVER_IP -U DOMAIN/username
 ```
 
 ### Connect to Share (Interactive)
+
 ```bash
 # Connect to specific share
 smbclient '//SERVER_IP/Company Data' -U htb-student
@@ -36,6 +38,7 @@ smbclient '//SERVER_IP/IPC$' -N                 # Null session enum
 ```
 
 ### Interactive Commands (once connected)
+
 ```bash
 smb: \> ls                    # List files
 smb: \> cd folder             # Change directory
@@ -50,6 +53,7 @@ smb: \> exit                  # Quit
 ```
 
 ### Non-Interactive (Download)
+
 ```bash
 # Download specific file
 smbclient '//SERVER_IP/Share' -U user -c 'get file.txt'
@@ -64,6 +68,7 @@ smbclient '//SERVER_IP/Share' -U user%password -c 'get file.txt'
 ## Mount SMB Share to Linux
 
 ### Mount to Directory
+
 ```bash
 # Basic mount
 sudo mount -t cifs -o username=htb-student,password=Academy_WinFun! //SERVER_IP/"Company Data" /mnt/smb
@@ -87,6 +92,7 @@ sudo umount /mnt/smb
 ## Windows PowerShell - SMB Shares
 
 ### List Available Shares (Local)
+
 ```powershell
 # List all SMB shares on local machine
 Get-SmbShare
@@ -100,6 +106,7 @@ Get-SmbShare
 ```
 
 ### Create New Share
+
 ```powershell
 # Share a directory
 New-SmbShare -Name "ShareName" -Path "C:\Path\To\Share" -FullAccess "Everyone"
@@ -112,12 +119,14 @@ New-SmbShare -Name "Backup" -Path "C:\Backups" -Description "Backup files" -Full
 ```
 
 ### Remove Share
+
 ```powershell
 # Remove SMB share
 Remove-SmbShare -Name "ShareName" -Force
 ```
 
 ### Access Remote Shares
+
 ```powershell
 # Map network drive (persistent)
 New-PSDrive -Name "Z" -PSProvider FileSystem -Root "\\SERVER\Share" -Persist
@@ -137,6 +146,7 @@ Remove-PSDrive -Name "Z"
 ```
 
 ### Net Use (CMD/PowerShell - Legacy but useful)
+
 ```powershell
 # Map drive
 net use Z: \\SERVER\Share /user:DOMAIN\username password
@@ -157,6 +167,7 @@ net use * /delete
 ## File Transfer Methods
 
 ### Linux to Windows (via SMB)
+
 ```bash
 # Setup: First mount the Windows share on Linux
 sudo mount -t cifs -o username=user,password=pass //WINDOWS_IP/C$ /mnt/smb
@@ -169,6 +180,7 @@ smbclient '//WINDOWS_IP/C$' -U user -c 'cd Users\Public; put file.txt'
 ```
 
 ### Windows to Linux (via SMB)
+
 ```bash
 # Setup: Create SMB share on Linux (using Impacket)
 impacket-smbserver share /tmp/smb -smb2support -username user -password pass
@@ -194,6 +206,7 @@ copy C:\file.txt \\LINUX_IP\share\
 ```
 
 ### PowerShell File Transfer via SMB
+
 ```powershell
 # Copy file to remote share
 Copy-Item "C:\local\file.txt" "\\SERVER\Share\file.txt"
@@ -214,6 +227,7 @@ Remove-PSDrive -Name "Temp"
 ## Enumeration Commands
 
 ### Linux - Enumerate SMB
+
 ```bash
 # Nmap SMB scripts
 nmap -p 445 --script smb-enum-shares,smb-enum-users TARGET_IP
@@ -238,6 +252,7 @@ smbmap -H TARGET_IP -u user -p pass -r  # Recursive listing
 ```
 
 ### PowerShell - Enumerate Local/Remote
+
 ```powershell
 # List local shares
 Get-SmbShare
@@ -259,14 +274,17 @@ Get-SmbShare -CimSession SERVER
 ```
 
 #### Computer Management (comptmgmt.msc)
+
 - Computer Management -> Shared Folder -> Shares/Sessions
 
 #### Event Viewer (eventvwr.msc)
-- Event Viewer -> 
+
+- Event Viewer ->
 
 ## Common Pentesting Scenarios
 
 ### Null Session Enumeration
+
 ```bash
 # Try null authentication
 smbclient -L //TARGET_IP -N
@@ -275,6 +293,7 @@ smbmap -H TARGET_IP -u '' -p ''
 ```
 
 ### Password Spraying
+
 ```bash
 # CrackMapExec
 crackmapexec smb TARGET_IP -u users.txt -p 'Password123!' --continue-on-success
@@ -284,11 +303,13 @@ crackmapexec smb TARGET_IP -u users.txt -p passwords.txt
 ```
 
 ### Check for Eternal Blue
+
 ```bash
 nmap -p 445 --script smb-vuln-ms17-010 TARGET_IP
 ```
 
 ### Access Admin Shares (C$, ADMIN$)
+
 ```bash
 # Requires local admin creds
 smbclient '//TARGET_IP/C$' -U administrator
@@ -313,6 +334,7 @@ dir Z:\Users
 - Guest access enabled = potential anonymous enum
 
 ## Resources
+
 - Impacket tools: https://github.com/SecureAuthCorp/impacket
 - SMB enumeration: enum4linux, smbmap, crackmapexec
 - Windows SMB cmdlets: `Get-Command *Smb*`

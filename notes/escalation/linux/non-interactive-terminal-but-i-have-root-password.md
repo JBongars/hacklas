@@ -1,6 +1,6 @@
 # non-interactive-terminal-but-i-have-root-password
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-09-26 13:50:18
 **Path:**
 

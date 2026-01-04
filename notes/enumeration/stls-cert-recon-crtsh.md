@@ -1,8 +1,8 @@
 # stls-cert-recon-crtsh
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-12-15 04:02:54
-**Path:** 
+**Path:**
 
 ---
 

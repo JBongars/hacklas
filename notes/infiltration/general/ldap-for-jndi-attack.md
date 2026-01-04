@@ -1,6 +1,6 @@
 # ldap for jndi attack
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-09-25 09:05:14
 **Path:** notes/infiltration/general/ldap-for-jndi-attack.md
 

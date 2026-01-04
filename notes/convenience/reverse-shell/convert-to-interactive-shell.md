@@ -35,4 +35,3 @@ export TERM=xterm
 export SHELL=/bin/bash
 stty rows 24 columns 80
 ```
-

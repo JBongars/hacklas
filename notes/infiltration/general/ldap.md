@@ -1,6 +1,6 @@
 # ldap
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-09-24 23:55:48
 **Path:** notes/infiltration/general/ldap.md
 

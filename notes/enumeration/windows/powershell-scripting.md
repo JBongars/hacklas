@@ -1,8 +1,8 @@
 # powershell-scripting
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2026-01-05 01:37:38
-**Path:** 
+**Path:**
 
 ---
 
@@ -11,41 +11,49 @@
 ### Categories
 
 #### Scripting
-?     → Where-Object
-%     → ForEach-Object
+
+? → Where-Object
+% → ForEach-Object
 
 #### Navigation & Files
-cd    → Set-Location
-ls    → Get-ChildItem
-dir   → Get-ChildItem
-pwd   → Get-Location
-cat   → Get-Content
-cp    → Copy-Item
-mv    → Move-Item
-rm    → Remove-Item
+
+cd → Set-Location
+ls → Get-ChildItem
+dir → Get-ChildItem
+pwd → Get-Location
+cat → Get-Content
+cp → Copy-Item
+mv → Move-Item
+rm → Remove-Item
 
 #### Objects & Filtering
-?     → Where-Object
-%     → ForEach-Object
+
+? → Where-Object
+% → ForEach-Object
 select → Select-Object
-sort  → Sort-Object
+sort → Sort-Object
 
 #### Output
-echo  → Write-Output
+
+echo → Write-Output
 write → Write-Output
 
 #### Process Management
-ps    → Get-Process
-kill  → Stop-Process
+
+ps → Get-Process
+kill → Stop-Process
 
 #### Services
-gsv   → Get-Service
+
+gsv → Get-Service
 
 #### Searching
-sls   → Select-String (like grep!)
+
+sls → Select-String (like grep!)
 
 #### Help
-man   → Get-Help
+
+man → Get-Help
 
 ### Examples
 

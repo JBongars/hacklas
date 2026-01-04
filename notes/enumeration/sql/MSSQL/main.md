@@ -1,8 +1,8 @@
 # mssql
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-10-14 18:12:36
-**Path:** 
+**Path:**
 
 ---
 
@@ -70,20 +70,20 @@ msf> use windows/manage/mssql_local_auth_bypass
 
 - [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) (`SSMS`) comes as a feature that can be installed with the MSSQL install package or can be downloaded & installed separately
 
-- Can be installed anywhere since its a client-side application, doesn't have to be on the server. 
+- Can be installed anywhere since its a client-side application, doesn't have to be on the server.
 
 - This means that some people can have the app with the credentials saved, and we can use that to connect to the database
 
 - MSSQL Clients;
-  
+
   - mssql-cli
-  
+
   - SQL Server Powershell
-  
+
   - HeidiSQL
-  
+
   - SQLPro
-  
+
   - Impacket's mssqlclient.py
 
 ## MSSQL Default Databases
@@ -104,7 +104,7 @@ msf> use windows/manage/mssql_local_auth_bypass
 
 ## Dangerous Settings
 
-Look out for these general errors people  make when configuring databases
+Look out for these general errors people make when configuring databases
 
 - MSSQL clients not using encryption to connect to the MSSQL server
 
@@ -121,7 +121,7 @@ Look out for these general errors people  make when configuring databases
 - Default port `TCP 1433`
 
 - nmap scanning:
-  
+
   - `sudo nmap --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-ntlm-info,ms-sql-tables,ms-sql-hasdbaccess,ms-sql-dac,ms-sql-dump-hashes --script-args mssql.instance-port=1433,mssql.username=sa,mssql.password=,mssql.instance-name=MSSQLSERVER -sV -p 1433 10.129.201.248`
 
 ## Interacting
@@ -161,10 +161,10 @@ use_link [NAME]
 select * from sys.database_principals;
 ```
 
-
 ### Get row count for all tables in a database
 
 **doesn't work...***
+
 ```sql
 SELECT t.NAME AS TableName, p.rows AS RowCount FROM sys.tables t INNER JOIN sys.partitions p ON t.object_id = p.object_id WHERE t.is_ms_shipped = 0 AND p.index_id IN (0,1) ORDER BY p.rows DESC;
 ```
@@ -185,6 +185,7 @@ SELECT permission_name, state_desc FROM sys.database_permissions WHERE grantee_p
 ## Register Keys
 
 ### SQL Server instance info
+
 ```sql
 -- SQL Server instance info
 EXEC xp_regread 'HKEY_LOCAL_MACHINE', 'SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL';
@@ -198,10 +199,10 @@ EXEC xp_regread 'HKEY_LOCAL_MACHINE', 'SOFTWARE\Microsoft\Microsoft SQL Server\M
 
 -- Audit level
 EXEC xp_regread 'HKEY_LOCAL_MACHINE', 'SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQLServer', 'AuditLevel';
-
 ```
 
 ### Credentials & Autologon
+
 ```sql
 sql-- Windows autologon credentials (goldmine if found)
 EXEC xp_regread 'HKEY_LOCAL_MACHINE', 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon', 'DefaultUserName';
@@ -211,6 +212,7 @@ EXEC xp_regread 'HKEY_LOCAL_MACHINE', 'SOFTWARE\Microsoft\Windows NT\CurrentVers
 ```
 
 ### System Information
+
 ```sql
 -- Computer name
 EXEC xp_regread 'HKEY_LOCAL_MACHINE', 'SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName', 'ComputerName';
@@ -221,6 +223,7 @@ EXEC xp_regread 'HKEY_LOCAL_MACHINE', 'SOFTWARE\Microsoft\Windows NT\CurrentVers
 ```
 
 ### Installed Software
+
 ```sql
 -- Check for other software
 EXEC xp_regread 'HKEY_LOCAL_MACHINE', 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall';
@@ -229,4 +232,3 @@ EXEC xp_regread 'HKEY_LOCAL_MACHINE', 'SOFTWARE\Microsoft\Windows\CurrentVersion
 # References
 
 [1433 - Pentesting MSSQL - Microsoft SQL Server | HackTricks](https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server)
-

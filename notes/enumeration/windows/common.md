@@ -1,8 +1,8 @@
 # common
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2026-01-05 01:35:44
-**Path:** 
+**Path:**
 
 ---
 

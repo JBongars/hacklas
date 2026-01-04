@@ -1,8 +1,8 @@
 # xfreerdp
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-12-29 23:36:56
-**Path:** 
+**Path:**
 
 ---
 
@@ -24,12 +24,14 @@ xfreerdp is the X11-based client implementation of the FreeRDP project, which pr
 Before using xfreerdp, you need to install it on your Linux system. The installation process varies by distribution:
 
 **Ubuntu/Debian**
+
 ```bash
 sudo apt update
 sudo apt install freerdp2-x11
 ```
 
 **Red Hat/CentOS/Fedora**
+
 ```bash
 # For Fedora
 sudo dnf install freerdp
@@ -39,6 +41,7 @@ sudo yum install freerdp
 ```
 
 **Arch Linux**
+
 ```bash
 sudo pacman -S freerdp
 ```
@@ -52,6 +55,7 @@ xfreerdp [options] /v:hostname[:port]
 ```
 
 Where:
+
 - options: Various configuration parameters
 - hostname: Target server IP address or domain name
 - port: RDP port (default is 3389)
@@ -60,23 +64,23 @@ Where:
 
 ### Connection Parameters
 
-| Option | Description | Example |
-|--------|-------------|---------|
-| /v: | Specify server address | /v:192.168.1.100 |
-| /u: | Username for authentication | /u:administrator |
-| /p: | Password for authentication | /p:mypassword |
-| /d: | Domain name | /d:company.local |
-| /port: | Custom RDP port | /port:3390 |
+| Option | Description                 | Example          |
+| ------ | --------------------------- | ---------------- |
+| /v:    | Specify server address      | /v:192.168.1.100 |
+| /u:    | Username for authentication | /u:administrator |
+| /p:    | Password for authentication | /p:mypassword    |
+| /d:    | Domain name                 | /d:company.local |
+| /port: | Custom RDP port             | /port:3390       |
 
 ### Display and Resolution Options
 
-| Option | Description | Example |
-|--------|-------------|---------|
-| /w: | Screen width | /w:1920 |
-| /h: | Screen height | /h:1080 |
-| /f | Full screen mode | /f |
-| /bpp: | Color depth (bits per pixel) | /bpp:32 |
-| /multimon | Multi-monitor support | /multimon |
+| Option    | Description                  | Example   |
+| --------- | ---------------------------- | --------- |
+| /w:       | Screen width                 | /w:1920   |
+| /h:       | Screen height                | /h:1080   |
+| /f        | Full screen mode             | /f        |
+| /bpp:     | Color depth (bits per pixel) | /bpp:32   |
+| /multimon | Multi-monitor support        | /multimon |
 
 ## Practical Examples
 
@@ -89,6 +93,7 @@ xfreerdp /v:192.168.1.100 /u:username
 ```
 
 Expected Output:
+
 ```
 Password: [password prompt will appear]
 [INFO][com.freerdp.core] - freerdp_connect:freerdp_set_last_error_ex resetting error state

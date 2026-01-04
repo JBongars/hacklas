@@ -1,6 +1,6 @@
 # file-traversal-lfi-rfi
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-09-26 21:58:30
 **Path:**
 

@@ -1,8 +1,8 @@
 # powershell
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2026-01-05 02:41:33
-**Path:** 
+**Path:**
 
 ---
 

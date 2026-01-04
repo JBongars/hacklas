@@ -1,6 +1,6 @@
 # use-sshpass-so-ssh-does-not-prompt-for-password
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-10-01 15:45:30
 **Path:**
 

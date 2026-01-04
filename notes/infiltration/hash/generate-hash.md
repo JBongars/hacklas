@@ -1,6 +1,6 @@
 # Hash Generation & Enumeration
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-09-26 13:34:26
 **Path:**
 

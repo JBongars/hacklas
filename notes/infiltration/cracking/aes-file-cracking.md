@@ -1,8 +1,8 @@
 # aes-file-cracking
 
-**Author:** Julien Bongars  
+**Author:** Julien Bongars\
 **Date:** 2025-10-13 02:02:16
-**Path:** 
+**Path:**
 
 ---
 
@@ -69,7 +69,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
 ## Install
@@ -78,3 +77,4 @@ if __name__ == "__main__":
 # save the above in own folder
 pipx install pyAesCrypt
 python <file> <.... args>
+```
