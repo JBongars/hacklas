@@ -64,7 +64,7 @@ Get-ChildItem -Path C:\ -Directory -Recurse -ErrorAction SilentlyContinue |
     Select-String -Pattern "Users:.*F"
 
 # Aliased version:
-gci C:\ -Directory -Recurse -EA SilentlyContinue | 
+gci C:\ -r -dir -EA SilentlyContinue | 
     % { icacls $_.FullName 2>$null } | 
     sls "Users:.*F"
 

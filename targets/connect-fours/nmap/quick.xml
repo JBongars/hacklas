@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Thu Jan  8 23:16:42 2026 as: nmap -vvv -p 80,5985 -4 -sC -sV -oA ./targets/connect-fours/nmap/quick 10.129.1.79 -->
+<nmaprun scanner="nmap" args="nmap -vvv -p 80,5985 -4 -sC -sV -oA ./targets/connect-fours/nmap/quick 10.129.1.79" start="1767885402" startstr="Thu Jan  8 23:16:42 2026" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="2" services="80,5985"/>
+<verbose level="3"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1767885402"/>
+<taskend task="NSE" time="1767885402"/>
+<taskbegin task="NSE" time="1767885402"/>
+<taskend task="NSE" time="1767885402"/>
+<taskbegin task="NSE" time="1767885402"/>
+<taskend task="NSE" time="1767885402"/>
+<taskbegin task="Ping Scan" time="1767885402"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="10.129.1.79" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskend task="Ping Scan" time="1767885402" extrainfo="1 total hosts"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1767885402"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1767885402"/>
+<taskbegin task="Connect Scan" time="1767885402"/>
+<taskend task="Connect Scan" time="1767885402" extrainfo="2 total ports"/>
+<taskbegin task="Service scan" time="1767885402"/>
+<taskend task="Service scan" time="1767885408" extrainfo="2 services on 1 host"/>
+<taskbegin task="NSE" time="1767885408"/>
+<taskend task="NSE" time="1767885413"/>
+<taskbegin task="NSE" time="1767885413"/>
+<taskend task="NSE" time="1767885414"/>
+<taskbegin task="NSE" time="1767885414"/>
+<taskend task="NSE" time="1767885414"/>
+<host starttime="1767885402" endtime="1767885414"><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="10.129.1.79" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="nginx" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-methods" output="&#xa;  Supported Methods: GET HEAD POST OPTIONS"><table key="Supported Methods">
+<elem>GET</elem>
+<elem>HEAD</elem>
+<elem>POST</elem>
+<elem>OPTIONS</elem>
+</table>
+</script><script id="http-title" output="Did not follow redirect to http://monitorsfour.htb/"><elem key="redirect_url">http://monitorsfour.htb/</elem>
+</script></port>
+<port protocol="tcp" portid="5985"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="Microsoft HTTPAPI httpd" version="2.0" extrainfo="SSDP/UPnP" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="Microsoft-HTTPAPI/2.0"><elem>Microsoft-HTTPAPI/2.0</elem>
+</script><script id="http-title" output="Not Found"><elem key="title">Not Found</elem>
+</script></port>
+</ports>
+<times srtt="4252" rttvar="2832" to="100000"/>
+</host>
+<taskbegin task="NSE" time="1767885414"/>
+<taskend task="NSE" time="1767885414"/>
+<taskbegin task="NSE" time="1767885414"/>
+<taskend task="NSE" time="1767885414"/>
+<taskbegin task="NSE" time="1767885414"/>
+<taskend task="NSE" time="1767885414"/>
+<runstats><finished time="1767885414" timestr="Thu Jan  8 23:16:54 2026" summary="Nmap done at Thu Jan  8 23:16:54 2026; 1 IP address (1 host up) scanned in 12.34 seconds" elapsed="12.34" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

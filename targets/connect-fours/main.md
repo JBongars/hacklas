@@ -1,0 +1,54 @@
+# connect-four
+
+Author: Julien Bongars
+Date: 2025-09-20 19:46:51
+Path: targets/connect-fours/main.md
+
+---
+
+link = https://app.hackthebox.com/machines/MonitorsFour?tab=play_machine
+ip = 10.129.1.79
+
+# Port scanning
+
+**rustscan**
+
+```bash
+rustscan -a "10.129.1.79" --ulimit 1000 -- -sC -sV -oA "./targets/connect-fours/nmap/quick"
+---
+# Nmap 7.94SVN scan initiated Thu Jan  8 23:16:42 2026 as: nmap -vvv -p 80,5985 -4 -sC -sV -oA ./targets/connect-fours/nmap/quick 10.129.1.79
+Nmap scan report for 10.129.1.79
+Host is up, received syn-ack (0.0043s latency).
+Scanned at 2026-01-08 23:16:42 +08 for 12s
+
+PORT     STATE SERVICE REASON  VERSION
+80/tcp   open  http    syn-ack nginx
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Did not follow redirect to http://monitorsfour.htb/
+5985/tcp open  http    syn-ack Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Jan  8 23:16:54 2026 -- 1 IP address (1 host up) scanned in 12.34 seconds
+```
+
+**nmap**
+
+```bash
+nmap -sC -sV -p- -oA "./targets/connect-fours/nmap/full" "10.129.1.79"
+---
+```
+
+# Enumeration
+
+# Creds
+
+-
+
+# References
+
+-

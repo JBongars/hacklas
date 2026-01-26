@@ -31,21 +31,31 @@ function init_note() {
     
     # Create file with template if it doesn't exist
     if [ ! -f "$file_path" ]; then
-        cat <<'EOF' > "$file_path"
+        cat <<EOF > "$file_path"
+# connect-four
+
+Author: Julien Bongars
+Date: 2025-09-20 19:46:51
+Path: ${FOLDER_PATH}
+
+---
 link = https://
+ip = 
 
 # Port scanning
 
 **rustscan**
 
 ```bash
-rustscan -a "$IP_ADDRESS" -ulimit 5000 -- -sC -sV -oA "$ATTACK_FOLDER/nmap/quick"
+rustscan -a "\$IP_ADDRESS" -ulimit 5000 -- -sC -sV -oA "$FOLDER_PATH/nmap/quick"
+rustscan -a "\$IP_ADDRESS" -ulimit 5000 -- -sC -sV -oA "$FOLDER_PATH/nmap/quick"
 ```
 
 **nmap**
 
 ```bash
-nmap -sC -sV -p- -oA "$ATTACK_FOLDER/nmap/full" "$IP_ADDRESS"
+nmap -sC -sV -p- -oA "$FOLDER_PATH/nmap/full" "\$IP_ADDRESS"
+nmap -sC -sV -p- -oA "$FOLDER_PATH/nmap/full" "\$IP_ADDRESS"
 ```
 
 
