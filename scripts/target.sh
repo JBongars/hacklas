@@ -4,9 +4,9 @@ set -euo pipefail
 VI=$(which nvim || which vim || which vi || which nano)
 
 function usage() {
-    echo "Usage: $0 [filename]"
-    echo "Create/edit notes. If no directory provided, uses timestamp."
-    echo "Accepts content via stdin or opens editor."
+    echo "Usage: $0 [folder]"
+    echo "Create/edit notes. If no folder provided, uses timestamp."
+    echo "Opens editor to edit main.md inside the folder."
     exit 0
 }
 
@@ -16,51 +16,48 @@ if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
 fi
 
 SCRIPT_DIR="$(dirname "$0")"
-NOTE_FILENAME="${1:-$(date +'%Y%m%dT%H%M%S')-to-sort.md}"
-FOLDER_PATH=$(cd "${SCRIPT_DIR}/.." && pwd)
-NOTE_LOCATION="$FOLDER_PATH/$NOTE_FILENAME"
+NOTE_FOLDER="${1:-$(date +'%Y%m%dT%H%M%S')-to-sort}"
+FOLDER_PATH="$(cd "${SCRIPT_DIR}/.." && pwd)"
+NOTE_LOCATION="$FOLDER_PATH/$NOTE_FOLDER"
+
+echo $NOTE_LOCATION > .current-target
 
 function init_note() {
     local file_path="$1"
+    local dir_path="$(dirname "$file_path")"
+    local title="$(basename "$dir_path")"
     
     # Create directory if it doesn't exist
-    local dir_path="$(dirname "$file_path")"
     if [ ! -d "$dir_path" ]; then
         mkdir -p "$dir_path"
+        mkdir -p "$dir_path/nmap"
     fi
     
     # Create file with template if it doesn't exist
     if [ ! -f "$file_path" ]; then
         cat <<EOF > "$file_path"
-# connect-four
-
-Author: Julien Bongars
-Date: 2025-09-20 19:46:51
-Path: ${FOLDER_PATH}
-
+# ${title}
+- **Author:** Julien Bongars
+- **Date:** $(date +'%Y-%m-%d %H:%M:%S')
+- **Path:** ${dir_path}
 ---
-link = https://
+
+link = https://app.hackthebox.com/machines/${title}
 ip = 
 
 # Port scanning
 
 **rustscan**
-
-```bash
-rustscan -a "\$IP_ADDRESS" -ulimit 5000 -- -sC -sV -oA "$FOLDER_PATH/nmap/quick"
-rustscan -a "\$IP_ADDRESS" -ulimit 5000 -- -sC -sV -oA "$FOLDER_PATH/nmap/quick"
-```
+\`\`\`bash
+rustscan -a "\$IP_ADDRESS" -ulimit 5000 -- -sC -sV -oA "${dir_path}/nmap/quick"
+\`\`\`
 
 **nmap**
-
-```bash
-nmap -sC -sV -p- -oA "$FOLDER_PATH/nmap/full" "\$IP_ADDRESS"
-nmap -sC -sV -p- -oA "$FOLDER_PATH/nmap/full" "\$IP_ADDRESS"
-```
-
+\`\`\`bash
+nmap -sC -sV -p- -oA "${dir_path}/nmap/full" "\$IP_ADDRESS"
+\`\`\`
 
 # Enumeration
-
 
 # Creds
 - 
@@ -69,12 +66,14 @@ nmap -sC -sV -p- -oA "$FOLDER_PATH/nmap/full" "\$IP_ADDRESS"
 - 
 EOF
     fi
+
+    cp -r "$FOLDER_PATH/templates/checklists" "$dir_path"
 }
 
 function edit_note() {
-    local file_path="$1"
-    init_note "$file_path/main.md"
-    $VI "$file_path/main.md"
+    local folder_path="$1"
+    init_note "$folder_path/main.md"
+    $VI "$folder_path/main.md"
 }
 
 edit_note "$NOTE_LOCATION"
