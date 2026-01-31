@@ -54,3 +54,5 @@ foreach ($_SESSION['history'] as $entry) {
 </body>
 </html>
 ```
+
+## I have terminal Access

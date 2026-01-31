@@ -35,3 +35,16 @@ export TERM=xterm
 export SHELL=/bin/bash
 stty rows 24 columns 80
 ```
+
+## Troubleshooting
+
+```bash
+www-data@dog:/var/www/html/modules/rvz722c62$ python3 -c 'import pty;pty.spawn("/bin/bash")'
+<c62$ python3 -c 'import pty;pty.spawn("/bin/bash")'
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+www-data@dog:/var/www/html/modules/rvz722c62$ cd /tmp
+cd /tmp
+```
+
+problem: the directory you are in no longer exists
+solution: cd /tmp
