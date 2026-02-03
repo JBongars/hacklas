@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Mon Feb  2 07:45:57 2026 as: nmap -sC -sV -p- -oA /home/julien/.hacklas/./targets/track-oscp/Titanic/nmap/full 10.129.231.221
+Host: 10.129.231.221 ()	Status: Up
+Host: 10.129.231.221 ()	Ports: 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.52/	Ignored State: closed (65533)
+# Nmap done at Mon Feb  2 07:46:11 2026 -- 1 IP address (1 host up) scanned in 13.42 seconds

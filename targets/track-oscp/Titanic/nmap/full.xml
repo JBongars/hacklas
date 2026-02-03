@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Mon Feb  2 07:45:57 2026 as: nmap -sC -sV -p- -oA /home/julien/.hacklas/./targets/track-oscp/Titanic/nmap/full 10.129.231.221 -->
+<nmaprun scanner="nmap" args="nmap -sC -sV -p- -oA /home/julien/.hacklas/./targets/track-oscp/Titanic/nmap/full 10.129.231.221" start="1769989557" startstr="Mon Feb  2 07:45:57 2026" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="10.129.231.221" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1769989557" endtime="1769989571"><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="10.129.231.221" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65533">
+<extrareasons reason="conn-refused" count="65533" proto="tcp" ports="1-21,23-79,81-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ssh" product="OpenSSH" version="8.9p1 Ubuntu 3ubuntu0.10" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:8.9p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="ssh-hostkey" output="&#xa;  256 73:03:9c:76:eb:04:f1:fe:c9:e9:80:44:9c:7f:13:46 (ECDSA)&#xa;  256 d5:bd:1d:5e:9a:86:1c:eb:88:63:4d:5f:88:4b:7e:04 (ED25519)"><table>
+<elem key="key">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGZG4yHYcDPrtn7U0l+ertBhGBgjIeH9vWnZcmqH0cvmCNvdcDY/ItR3tdB4yMJp0ZTth5itUVtlJJGHRYAZ8Wg=</elem>
+<elem key="bits">256</elem>
+<elem key="fingerprint">73039c76eb04f1fec9e980449c7f1346</elem>
+<elem key="type">ecdsa-sha2-nistp256</elem>
+</table>
+<table>
+<elem key="key">AAAAC3NzaC1lZDI1NTE5AAAAIDT1btWpkcbHWpNEEqICTtbAcQQitzOiPOmc3ZE0A69Z</elem>
+<elem key="bits">256</elem>
+<elem key="fingerprint">d5bd1d5e9a861ceb88634d5f884b7e04</elem>
+<elem key="type">ssh-ed25519</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="Apache httpd" version="2.4.52" hostname="titanic.htb" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.52</cpe></service><script id="http-server-header" output="Apache/2.4.52 (Ubuntu)"><elem>Apache/2.4.52 (Ubuntu)</elem>
+</script><script id="http-title" output="Did not follow redirect to http://titanic.htb/"><elem key="redirect_url">http://titanic.htb/</elem>
+</script></port>
+</ports>
+<times srtt="4460" rttvar="406" to="100000"/>
+</host>
+<runstats><finished time="1769989571" timestr="Mon Feb  2 07:46:11 2026" summary="Nmap done at Mon Feb  2 07:46:11 2026; 1 IP address (1 host up) scanned in 13.42 seconds" elapsed="13.42" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

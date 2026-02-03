@@ -12,8 +12,8 @@ These boxes are for preperation for OSCP
 | [ ]  | TombWatcher   | https://app.hackthebox.com/machines/TombWatcher   | 11 Oct 2025 |         |
 | [ ]  | Fluffy        | https://app.hackthebox.com/machines/Fluffy        | 20 Sep 2025 |         |
 | [ ]  | TheFrizz      | https://app.hackthebox.com/machines/TheFrizz      | 23 Aug 2025 |         |
-| [ ]  | Dog           | https://app.hackthebox.com/machines/Dog           | 12 Jul 2025 |         |
-| [ ]  | Titanic       | https://app.hackthebox.com/machines/Titanic       | 21 Jun 2025 |         |
+| [x]  | Dog           | https://app.hackthebox.com/machines/Dog           | 12 Jul 2025 |         |
+| [x]  | Titanic       | https://app.hackthebox.com/machines/Titanic       | 21 Jun 2025 |         |
 | [ ]  | Administrator | https://app.hackthebox.com/machines/Administrator | 19 Apr 2025 |         |
 | [ ]  | LinkVortex    | https://app.hackthebox.com/machines/LinkVortex    | 12 Apr 2025 |         |
 | [ ]  | Certified     | https://app.hackthebox.com/machines/Certified     | 15 Mar 2025 |         |

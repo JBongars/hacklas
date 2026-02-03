@@ -36,8 +36,12 @@ function search_filename() {
 		exit 1
 	fi
 	
-	$VI "$(find "$dir_path" -type f \( -name "*.md" -o -name "*.txt" -o -name "*.org" \) \
+	local filename="$(find "$dir_path" -type f \( -name "*.md" -o -name "*.txt" -o -name "*.org" \) \
 		| fzf --multi --preview "bat --color=always {}" --preview-window=right:60% )"
+
+	if [ ! "$filename" = "" ]; then
+		"$VI" "$filename"
+	fi
 }
 
 function search_content() {
@@ -50,12 +54,16 @@ function search_content() {
 		exit 1
 	fi
 	
-	$VI "$(rg "$search" "$dir_path" \
+	local filename="$(rg "$search" "$dir_path" \
 		--text \
 		--max-filesize 5M \
 		-l \
 		--ignore-file "${SCRIPT_DIR}/../.grepignore" \
 		| fzf --multi --preview "rg --color=always --context=20 '$search' {}" --preview-window=right:60% )"
+
+	if [ ! "$filename" = "" ]; then
+		"$VI" "$filename"
+	fi
 }
 
 # handle folder path

