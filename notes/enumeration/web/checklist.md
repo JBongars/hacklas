@@ -31,7 +31,7 @@
   - [ ] Check VHosts
     - Using ffuf (fast, preferred) `ffuf -u http://target.htb -H "Host: FUZZ.target.htb" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -fs <SIZE>`
     - Using gobuster `gobuster vhost -u http://target.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt --append-domain`
-- [ ] fingerprint stack, whatsweb/wappalyzer
+- [ ] fingerprint stack, whatweb/wappalyzer
   - whatweb `whatweb -a 3 http://target.htb`
   - wappalyzer (browser extension)
   - nikto `nikto -h http://target.htb`

@@ -67,7 +67,9 @@ nmap -sC -sV -p- -oA "${dir_path}/nmap/full" "\$IP_ADDRESS"
 EOF
     fi
 
-    cp -r "$FOLDER_PATH/templates/checklists" "$dir_path"
+    # cp -r "$FOLDER_PATH/templates/checklists" "$dir_path"
+    mkdir "$dir_apth/checklists"
+    mkdir "$dir_apth/nmap"
 }
 
 function edit_note() {
