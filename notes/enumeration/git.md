@@ -6,7 +6,11 @@
 
 ---
 
-## Enumeration
+# Enumeration
+
+## Dump Git repository
+
+Enumeration
 
 Use git-dumper to enumerate through files
 
@@ -15,7 +19,11 @@ source https://github.com/arthaud/git-dumper.git
 ### Install
 
 ```bash
-pip install git-dumper
+# install
+pipx install git-dumper
+
+# run
+mkdir src && git-dumper 'http://<TARGET>/.git' ./src
 ```
 
 ### Example
@@ -182,3 +190,8 @@ pip install git-dumper
 [-] Fetching http://pilgrimage.htb/.git/objects/f1/8fa9173e9f7c1b2f30f3d20c4a303e18d88548 [200]
 [-] Running git checkout .
 ```
+
+## Checklist
+
+- [ ] Check `git status`
+- [ ] Check `git diff --cached HEAD` for changes to yet fond

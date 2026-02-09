@@ -48,19 +48,28 @@
   - [ ] Check `/phpinfo.php`
   - [ ] Common backup patterns: `index.php.bak`, `index.php~`, `index.php.old`, `index.php.save`, `.index.php.swp`
 - [ ] Any CMS/CRM/tech name appear?
+  - [ ] Any versions / years / links [TAKE NOTE OF THIS]
+    - [ ] Take note of this, use `searchsploit` to find potential vulnerabilities
   - [ ] searchsploit for tech `searchsploit <techname>`
   - [ ] Get version (check source, headers, /version, /CHANGELOG.txt, /README.txt)
   - [ ] Google "[tech] [version] exploit"
   - [ ] Check HackTricks `https://book.hacktricks.xyz`
+  - [ ] Are you able to change the theme?
+    - [ ] See if you can use php injection to create RCE
+  - [ ] Are you able to create backups?
+  - [ ] Are you able to upload files?
   - [ ] **CMS-Specific Enumeration**
     - **WordPress**: `wpscan --url http://target.htb --enumerate u,p,t`
-    - Check `/wp-admin`, `/wp-content/uploads`, `/wp-config.php.bak`
+    - [ ] Check `/wp-admin`, `/wp-content/uploads`, `/wp-config.php.bak`
+      - [ ] Are you able to access the admin page?
+        - [ ] use `wpscan -e ap` to enumerate all plugins for possible vulnerabilities
     - **Joomla**: `joomscan -u http://target.htb`
-      - Check `/administrator`, `/configuration.php`
+      - [ ] Check `/administrator`, `/configuration.php`
     - **Drupal**: `droopescan scan drupal -u http://target.htb`
-      - Check `/?q=admin`, `/user/login`, `CHANGELOG.txt`
+      - [ ] Check `/?q=admin`, `/user/login`, `CHANGELOG.txt`
     - **Magento**: Check `/admin`, `/downloader`, `/api`
     - **SharePoint**: Check `/_layouts`, `/_vti_bin`
+-
 
 ## Enumeration
 

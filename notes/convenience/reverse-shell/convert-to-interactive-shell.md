@@ -6,6 +6,12 @@ Path: /opt/development/cybersec/hacklas/notes/convenience/reverse-shell/convert-
 
 ---
 
+### Check current window rows ond cols
+
+```bash
+stty size
+```
+
 ### Make fully interactive
 
 **Method 1**
@@ -13,9 +19,11 @@ Path: /opt/development/cybersec/hacklas/notes/convenience/reverse-shell/convert-
 ```bash
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 CTRL-Z
-stty raw -echo
-fg
+stty raw -echo; fg
+
+# set the target
 export TERM=xterm
+stty rows $(tput lines) cols $(tput cols)
 ```
 
 **Method 2**
@@ -33,7 +41,7 @@ stty raw -echo; fg
 # Step 4: Back in reverse shell
 export TERM=xterm
 export SHELL=/bin/bash
-stty rows 24 columns 80
+stty rows 60 columns 271
 ```
 
 ## Troubleshooting

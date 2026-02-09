@@ -73,7 +73,9 @@ EOF
 function edit_note() {
     local folder_path="$1"
     init_note "$folder_path/main.md"
-    $VI "$folder_path/main.md"
+
+    cd "$folder_path"
+    $VI "./main.md"
 }
 
 edit_note "$NOTE_LOCATION"

@@ -1,0 +1,423 @@
+------------------------------------------------------------------------
+Integrity Check Error in backup last ran :  Sat Feb 17 12:46:04 EST 2018
+------------------------------------------------------------------------
+/var/tmp/.5ab88ff0386cb85760f49c5d8a1dc73ac80dc46c
+Only in /var/www/html: index.html
+Only in /var/tmp/check/var/www/html: ȜӎŗgͷͼȜ_5h377
+Only in /var/www/html: webservices
+------------------------------------------------------------------------
+Integrity Check Error in backup last ran :  Fri Mar  9 13:12:49 EST 2018
+------------------------------------------------------------------------
+/var/tmp/.ad6461410d5752be98ad3f884a48cd3f95f930a0
+Only in /var/www/html/webservices/wp/wp-content/plugins/gwolle-gb/frontend/captcha: ȜӎŗgͷͼȜ_5h377
+------------------------------------------------------------------------
+Integrity Check Error in backup last ran :  Fri Mar  9 15:40:10 EST 2018
+------------------------------------------------------------------------
+/var/tmp/.ed85b6b0be4f8e1b3a0a99598e016a7d2dbece48
+Only in /var/www/html: index.html
+Only in /var/www/html/webservices/monstra-3.0.4: admin
+Only in /var/www/html/webservices/monstra-3.0.4: backups
+Only in /var/www/html/webservices/monstra-3.0.4: boot
+Only in /var/www/html/webservices/monstra-3.0.4: CHANGELOG.md
+Only in /var/www/html/webservices/monstra-3.0.4: engine
+Only in /var/www/html/webservices/monstra-3.0.4: favicon.ico
+Only in /var/www/html/webservices/monstra-3.0.4: .gitignore
+Only in /var/www/html/webservices/monstra-3.0.4: .htaccess
+Only in /var/www/html/webservices/monstra-3.0.4: index_copy.php
+Only in /var/www/html/webservices/monstra-3.0.4: index.php
+Only in /var/www/html/webservices/monstra-3.0.4: libraries
+Only in /var/www/html/webservices/monstra-3.0.4: LICENSE.md
+Only in /var/www/html/webservices/monstra-3.0.4/plugins: blog
+Only in /var/www/html/webservices/monstra-3.0.4/plugins: captcha
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: addon
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: AUTHORS
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: bower.json
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: .gitattributes
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: .gitignore
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: .htaccess
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: index.html
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: keymap
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: lib
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: LICENSE
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: apl
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: clike
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: cobol
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: coffeescript
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: commonlisp
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: css
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: d
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: eiffel
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: erlang
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: gas
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: groovy
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: htmlembedded
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: http
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: index.html
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: javascript
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: julia
+diff -r /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode/less/index.html /var/tmp/check/var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode/less/index.html
+431,753c431
+<           text-decoration: none;
+<         }
+<       }
+<     }
+<     .border-radius(5px, bottom);
+<     .box-shadow(0, 6px, 8px, 0.5);
+<   }
+< }
+< 
+< #main {
+<   margin: 0 auto;
+<   width: 100%;
+<   background-color: @light-blue;
+<   border-top: 8px solid darken(@light-blue, 5%);
+< 
+<   #intro {
+<     background-color: lighten(@light-blue, 25%);
+<     float: left;
+<     margin-top: -8px;
+<     margin-right: 5px;
+< 
+<     height: 380px;
+<     position: relative;
+<     z-index: 2;
+<     font-family: 'Droid Serif', 'Georgia';
+<     width: 395px;
+<     padding: 45px 20px 23px 30px;
+<     border: 2px dashed darken(@light-blue, 10%);
+<     .box-shadow(1px, 0px, 6px, 0.5);
+<     border-bottom: 0;
+<     border-top: 0;
+<     #download { color: transparent; border: 0; float: left; display: inline-block; margin: 15px 0 15px -5px; }
+<     #download img { display: inline-block}
+<     #download-info {
+<       code {
+<         font-size: 13px;  
+<       }
+<       color: @blue + #333; display: inline; float: left; margin: 36px 0 0 15px }
+<   }
+<   h2 {
+<     span {
+<       color: @medium;  
+<     }
+<     color: @blue;
+<     margin: 20px 0;
+<     font-size: 24px;
+<     line-height: 1.2em;
+<   }
+<   h3 {
+<     color: @blue;
+<     line-height: 1.4em;
+<     margin: 30px 0 15px 0;
+<     font-size: 1em;
+<     text-shadow: 0px 0px 0px @lightest;
+<     span { color: @medium }
+<   }
+<   #example {
+<     p {
+<       font-size: 18px;
+<       color: @blue;
+<       font-weight: bold;
+<       text-shadow: 0px 1px 1px @lightest;
+<     }
+<     pre {
+<       margin: 0;
+<       text-shadow: 0 -1px 1px @darkest;
+<       margin-top: 20px;
+<       background-color: desaturate(@darkest, 8%);
+<       border: 0;
+<       width: 450px;
+<       color: lighten(@lightest, 2%);
+<       background-repeat: repeat;
+<       padding: 15px;
+<       border: 1px dashed @lightest;
+<       line-height: 15px;
+<       .box-shadow(0, 0px, 15px, 0.5);
+<       .code;
+<       .border-radius(2px);
+<       code .attribute { color: hsl(40, 50%, 70%) }
+<       code .variable  { color: hsl(120, 10%, 50%) }
+<       code .element   { color: hsl(170, 20%, 50%) }
+< 
+<       code .string, .regexp { color: hsl(75, 50%, 65%) }
+<       code .class { color: hsl(40, 40%, 60%); font-weight: normal }
+<       code .id { color: hsl(50, 40%, 60%); font-weight: normal }
+<       code .comment { color: rgba(255, 255, 255, 0.2) }
+<       code .number, .color { color: hsl(10, 40%, 50%) }
+<       code .class, code .mixin, .special { color: hsl(190, 20%, 50%) }
+<       #time { color: #aaa }
+<     }
+<     float: right;
+<     font-size: 12px;
+<     margin: 0;
+<     margin-top: 15px;
+<     padding: 0;
+<     width: 500px;
+<   }
+< }
+< 
+< 
+< .page {
+<   .content {
+<     width: 870px;
+<     padding: 45px;
+<   }
+<   margin: 0 auto;
+<   font-family: 'Georgia', serif;
+<   font-size: 18px;
+<   line-height: 26px;
+<   padding: 0 60px;
+<   code {
+<     font-size: 16px;  
+<   }
+<   pre {
+<     border-width: 1px;
+<     border-style: dashed;
+<     padding: 15px;
+<     margin: 15px 0;
+<   }
+<   h1 {
+<     text-align: left;
+<     font-size: 40px;
+<     margin-top: 15px;
+<     margin-bottom: 35px;
+<   }
+<   p + h1 { margin-top: 60px }
+<   h2, h3 {
+<     margin: 30px 0 15px 0;
+<   }
+<   p + h2, pre + h2, code + h2 {
+<     border-top: 6px solid rgba(255, 255, 255, 0.1);
+<     padding-top: 30px;
+<   }
+<   h3 {
+<     margin: 15px 0;
+<   }
+< }
+< 
+< 
+< #docs {
+<   @bg: lighten(@light-blue, 5%);
+<   border-top: 2px solid lighten(@bg, 5%);
+<   color: @blue;
+<   background-color: @light-blue;
+<   .box-shadow(0, -2px, 5px, 0.2);
+< 
+<   h1 {
+<     font-family: 'Droid Serif', 'Georgia', serif;
+<     padding-top: 30px;
+<     padding-left: 45px;
+<     font-size: 44px;
+<     text-align: left;
+<     margin: 30px 0 !important;
+<     text-shadow: 0px 1px 1px @lightest;
+<     font-weight: bold;
+<   }
+<   .content {
+<     clear: both;
+<     border-color: transparent;
+<     background-color: lighten(@light-blue, 25%);
+<     .box-shadow(0, 5px, 5px, 0.4);
+<   }
+<   pre {
+<     @background: lighten(@bg, 30%);
+<     color: lighten(@blue, 10%);
+<     background-color: @background;
+<     border-color: lighten(@light-blue, 25%);
+<     border-width: 2px;
+<     code .attribute { color: hsl(40, 50%, 30%) }
+<     code .variable  { color: hsl(120, 10%, 30%) }
+<     code .element   { color: hsl(170, 20%, 30%) }
+< 
+<     code .string, .regexp { color: hsl(75, 50%, 35%) }
+<     code .class { color: hsl(40, 40%, 30%); font-weight: normal }
+<     code .id { color: hsl(50, 40%, 30%); font-weight: normal }
+<     code .comment { color: rgba(0, 0, 0, 0.4) }
+<     code .number, .color { color: hsl(10, 40%, 30%) }
+<     code .class, code .mixin, .special { color: hsl(190, 20%, 30%) }
+<   }
+<   pre code                    { font-size: 15px  }
+<   p + h2, pre + h2, code + h2 { border-top-color: rgba(0, 0, 0, 0.1) }
+< }
+< 
+< td {
+<   padding-right: 30px;  
+< }
+< #synopsis {
+<   .box-shadow(0, 5px, 5px, 0.2);
+< }
+< #synopsis, #about {
+<   h2 {
+<     font-size: 30px;  
+<     padding: 10px 0;
+<   }
+<   h1 + h2 {
+<       margin-top: 15px;  
+<   }
+<   h3 { font-size: 22px }
+< 
+<   .code-example {
+<     border-spacing: 0;
+<     border-width: 1px;
+<     border-style: dashed;
+<     padding: 0;
+<     pre { border: 0; margin: 0 }
+<     td {
+<       border: 0;
+<       margin: 0;
+<       background-color: desaturate(darken(@darkest, 5%), 20%);
+<       vertical-align: top;
+<       padding: 0;
+<     }
+<     tr { padding: 0 }
+<   }
+<   .css-output {
+<     td {
+<       border-left: 0;  
+<     }
+<   }
+<   .less-example {
+<     //border-right: 1px dotted rgba(255, 255, 255, 0.5) !important;
+<   }
+<   .css-output, .less-example {
+<     width: 390px;
+<   }
+<   pre {
+<     padding: 20px;
+<     line-height: 20px;
+<     font-size: 14px;
+<   }
+< }
+< #about, #synopsis, #guide {
+<   a {
+<     text-decoration: none;
+<     color: @light-yellow;
+<     border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+<     &:hover {
+<       text-decoration: none;
+<       border-bottom: 1px dashed @light-yellow;
+<     }
+<   }
+<   @bg: desaturate(darken(@darkest, 5%), 20%);
+<   text-shadow: 0 -1px 1px lighten(@bg, 5%);
+<   color: @highlight;
+<   background-color: @bg;
+<   .content {
+<     background-color: desaturate(@darkest, 20%);
+<     clear: both;
+<     .box-shadow(0, 5px, 5px, 0.4);
+<   }
+<   h1, h2, h3 {
+<     color: @dark-yellow;
+<   }
+<   pre {
+<       code .attribute { color: hsl(40, 50%, 70%) }
+<       code .variable  { color: hsl(120, 10%, 50%) }
+<       code .element   { color: hsl(170, 20%, 50%) }
+< 
+<       code .string, .regexp { color: hsl(75, 50%, 65%) }
+<       code .class { color: hsl(40, 40%, 60%); font-weight: normal }
+<       code .id { color: hsl(50, 40%, 60%); font-weight: normal }
+<       code .comment { color: rgba(255, 255, 255, 0.2) }
+<       code .number, .color { color: hsl(10, 40%, 50%) }
+<       code .class, code .mixin, .special { color: hsl(190, 20%, 50%) }
+<     background-color: @bg;
+<     border-color: darken(@light-yellow, 5%);
+<   }
+<   code {
+<     color: darken(@dark-yellow, 5%);
+<     .string, .regexp { color: desaturate(@light-blue, 15%) }
+<     .keyword { color: hsl(40, 40%, 60%); font-weight: normal }
+<     .comment { color: rgba(255, 255, 255, 0.2) }
+<     .number { color: lighten(@blue, 10%) }
+<     .class, .special { color: hsl(190, 20%, 50%) }
+<   }
+< }
+< #guide {
+<   background-color: @darkest;
+<   .content {
+<     background-color: transparent;
+<   }
+< 
+< }
+< 
+< #about {
+<   background-color: @darkest !important;
+<   .content {
+<     background-color: desaturate(lighten(@darkest, 3%), 5%);
+<   }
+< }
+< #synopsis {
+<   background-color: desaturate(lighten(@darkest, 3%), 5%) !important;
+<   .content {
+<     background-color: desaturate(lighten(@darkest, 3%), 5%);
+<   }
+<   pre {}
+< }
+< #synopsis, #guide {
+<   .content {
+<     .box-shadow(0, 0px, 0px, 0.0);
+<   }
+< }
+< #about footer {
+<   margin-top: 30px;
+<   padding-top: 30px;
+<   border-top: 6px solid rgba(0, 0, 0, 0.1);
+<   text-align: center;
+<   font-size: 16px;
+<   color: rgba(255, 255, 255, 0.35);
+<   #copy { font-size: 12px }
+<   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.02);
+< }
+< </textarea></form>
+<     <script>
+<       var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+<         theme: "lesser-dark",
+<         lineNumbers : true,
+<         matchBrackets : true
+<       });
+<     </script>
+< 
+<     <p><strong>MIME types defined:</strong> <code>text/x-less</code>, <code>text/css</code> (if not previously defined).</p>
+<   </article>
+---
+>           text-dec
+\ No newline at end of file
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: octave
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: pegjs
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: perl
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: pig
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: python
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: q
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: r
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: rpm
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: rst
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: rust
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: sass
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: scheme
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: sparql
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: sql
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: tcl
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: toml
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: xquery
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror/mode: yaml
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: package.json
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: README.md
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: theme
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror/codemirror: .travis.yml
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror: LICENSE
+Only in /var/www/html/webservices/monstra-3.0.4/plugins/codemirror: README.md
+Only in /var/www/html/webservices/monstra-3.0.4/plugins: markitup
+Only in /var/www/html/webservices/monstra-3.0.4/plugins: sandbox
+Only in /var/www/html/webservices/monstra-3.0.4: public
+Only in /var/www/html/webservices/monstra-3.0.4: README.md
+Only in /var/www/html/webservices/monstra-3.0.4: robots.txt
+Only in /var/www/html/webservices/monstra-3.0.4: rss.php
+Only in /var/www/html/webservices/monstra-3.0.4: sitemap.xml
+Only in /var/www/html/webservices/monstra-3.0.4: storage
+Only in /var/www/html/webservices/monstra-3.0.4: tmp
+------------------------------------------------------------------------
+Integrity Check Error in backup last ran :  Thu Jan 21 05:38:54 EST 2021
+------------------------------------------------------------------------
+/var/tmp/.379fe8e77f9f84a66b9a6df9a452d10499713829
+Binary files /var/www/html/webservices/wp/.wp-config.php.swp and /var/tmp/check/var/www/html/webservices/wp/.wp-config.php.swp differ

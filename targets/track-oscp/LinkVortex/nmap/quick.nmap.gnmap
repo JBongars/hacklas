@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Wed Feb  4 04:07:53 2026 as: nmap -sC -sV -p- -oA ./nmap/quick.nmap linkvortex.htb
+Host: 10.129.193.249 (linkvortex.htb)	Status: Up
+Host: 10.129.193.249 (linkvortex.htb)	Ports: 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd/	Ignored State: closed (65533)
+# Nmap done at Wed Feb  4 04:08:07 2026 -- 1 IP address (1 host up) scanned in 14.52 seconds

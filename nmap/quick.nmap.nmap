@@ -1,0 +1,15 @@
+# Nmap 7.94SVN scan initiated Fri Feb  6 22:25:07 2026 as: nmap -sC -sV -oA ./nmap/quick.nmap 10.129.1.185
+Nmap scan report for 10.129.1.185
+Host is up (0.0043s latency).
+Not shown: 999 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-title: Landing Page
+| http-robots.txt: 5 disallowed entries 
+| /webservices/tar/tar/source/ 
+| /webservices/monstra-3.0.4/ /webservices/easy-file-uploader/ 
+|_/webservices/developmental/ /webservices/phpmyadmin/
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Feb  6 22:25:17 2026 -- 1 IP address (1 host up) scanned in 9.56 seconds
