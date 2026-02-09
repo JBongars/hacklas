@@ -67,8 +67,14 @@
 
 # Root Access
 
-- [ ] Do we actually need root to get flag? `/root/root.txt`
-- [ ] Any backup scripts running as root?
+- [ ] Do we actually need root to get flag? /root/root.txt
+- [ ] sudo -l again as new user
+- [ ] Any cron/backup scripts running as root? → See Jail Breakout
+- [ ] Writable /etc/passwd? → add root user
+- [ ] Writable /etc/shadow? → replace root hash
+- [ ] Writable /etc/sudoers? → give yourself sudo
+- [ ] Custom SUID binary not on GTFOBins? → strings, ltrace, strace
+- [ ] Kernel exploit as last resort uname -a → searchsploit
 
 # Jail Breakout
 
