@@ -1,7 +1,6 @@
 # TartarSauce
 
 - **Author:** Julien Bongars
-- **Date:** 2026-02-06 21:46:25
 - **Path:** /home/julien/.hacklas/./targets/track-oscp/TartarSauce
 
 ---
