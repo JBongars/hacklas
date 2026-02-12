@@ -68,8 +68,8 @@ EOF
     fi
 
     # cp -r "$FOLDER_PATH/templates/checklists" "$dir_path"
-    mkdir "$dir_apth/checklists"
-    mkdir "$dir_apth/nmap"
+    mkdir "$dir_path/checklists" || :
+    mkdir "$dir_path/nmap" || :
 }
 
 function edit_note() {
