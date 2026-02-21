@@ -12,6 +12,8 @@ source: https://gist.githubusercontent.com/mccabe615/b0907514d34b2de088c4996933e
 
 source: https://stackoverflow.com/a/3697776
 
+source: https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/php-tricks-esp/php-useful-functions-disable_functions-open_basedir-bypass/index.html
+
 ## Note
 
 Always check `phpinfo(), exec(), system(), shell_exec()` !

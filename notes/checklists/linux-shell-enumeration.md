@@ -9,7 +9,7 @@
 # Foothold
 
 - [ ] We have the password for the current user
-  - [ ] `sudo -l`
+  - [ ] `sudo -n -l` -- -n means non interactive
     - [ ] GTFO bins to escalate to that user
     - [ ] There is a custom script/tool? → See **Jail Breakout**
   - [ ] User sudoed in the past `find /home -name .sudo_as_admin_successful`

@@ -37,7 +37,7 @@ These boxes are for preperation for OSCP
 | [ ]  | Escape        | https://app.hackthebox.com/machines/Escape        | 17 Jun 2023 | Windows |                                    |
 | [ ]  | Soccer        | https://app.hackthebox.com/machines/Soccer        | 10 Jun 2023 | Linux   |                                    |
 | [ ]  | Flight        | https://app.hackthebox.com/machines/Flight        | 06 May 2023 | Windows | Extreme                            |
-| [ ]  | UpDown        | https://app.hackthebox.com/machines/UpDown        | 21 Jan 2023 | Linux   |                                    |
+| [x]  | UpDown        | https://app.hackthebox.com/machines/UpDown        | 21 Jan 2023 | Linux   |                                    |
 | [ ]  | Support       | https://app.hackthebox.com/machines/Support       | 17 Dec 2022 |         |                                    |
 | [ ]  | StreamIO      | https://app.hackthebox.com/machines/StreamIO      | 17 Sep 2022 |         |                                    |
 | [ ]  | Timelapse     | https://app.hackthebox.com/machines/Timelapse     | 20 Aug 2022 |         |                                    |
