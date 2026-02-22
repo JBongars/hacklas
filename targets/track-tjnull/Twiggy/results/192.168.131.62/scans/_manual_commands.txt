@@ -1,0 +1,58 @@
+[*] ssh on tcp/22
+
+	[-] Bruteforce logins:
+
+		hydra -L "/usr/share/seclists/Usernames/top-usernames-shortlist.txt" -P "/usr/share/seclists/Passwords/darkweb2017-top100.txt" -e nsr -s 22 -o "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp22/tcp_22_ssh_hydra.txt" ssh://192.168.131.62
+
+		medusa -U "/usr/share/seclists/Usernames/top-usernames-shortlist.txt" -P "/usr/share/seclists/Passwords/darkweb2017-top100.txt" -e ns -n 22 -O "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp22/tcp_22_ssh_medusa.txt" -M ssh -h 192.168.131.62
+
+[*] domain on tcp/53
+
+	[-] Use dnsrecon to bruteforce subdomains of a DNS domain.
+
+		dnsrecon -n 192.168.131.62 -d <DOMAIN-NAME> -D /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t brt 2>&1 | tee /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp53/tcp_53_dnsrecon_subdomain_bruteforce.txt
+
+	[-] Use dnsrecon to automatically query data from the DNS server. You must specify the target domain name.
+
+		dnsrecon -n 192.168.131.62 -d <DOMAIN-NAME> 2>&1 | tee /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp53/tcp_53_dnsrecon_default_manual.txt
+
+[*] http on tcp/80
+
+	[-] (feroxbuster) Multi-threaded recursive directory/file enumeration for web servers using various wordlists:
+
+		feroxbuster -u http://192.168.131.62:80 -t 10 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x "txt,html,php,asp,aspx,jsp" -v -k -n -e -r -o /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp80/tcp_80_http_feroxbuster_dirbuster.txt
+
+	[-] Credential bruteforcing commands (don't run these without modifying them):
+
+		hydra -L "/usr/share/seclists/Usernames/top-usernames-shortlist.txt" -P "/usr/share/seclists/Passwords/darkweb2017-top100.txt" -e nsr -s 80 -o "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp80/tcp_80_http_auth_hydra.txt" http-get://192.168.131.62/path/to/auth/area
+
+		medusa -U "/usr/share/seclists/Usernames/top-usernames-shortlist.txt" -P "/usr/share/seclists/Passwords/darkweb2017-top100.txt" -e ns -n 80 -O "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp80/tcp_80_http_auth_medusa.txt" -M http -h 192.168.131.62 -m DIR:/path/to/auth/area
+
+		hydra -L "/usr/share/seclists/Usernames/top-usernames-shortlist.txt" -P "/usr/share/seclists/Passwords/darkweb2017-top100.txt" -e nsr -s 80 -o "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp80/tcp_80_http_form_hydra.txt" http-post-form://192.168.131.62/path/to/login.php:"username=^USER^&password=^PASS^":"invalid-login-message"
+
+		medusa -U "/usr/share/seclists/Usernames/top-usernames-shortlist.txt" -P "/usr/share/seclists/Passwords/darkweb2017-top100.txt" -e ns -n 80 -O "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp80/tcp_80_http_form_medusa.txt" -M web-form -h 192.168.131.62 -m FORM:/path/to/login.php -m FORM-DATA:"post?username=&password=" -m DENY-SIGNAL:"invalid login message"
+
+	[-] (wpscan) WordPress Security Scanner (useful if WordPress is found):
+
+		wpscan --url http://192.168.131.62:80/ --no-update -e vp,vt,tt,cb,dbe,u,m --plugins-detection aggressive --plugins-version-detection aggressive -f cli-no-color 2>&1 | tee "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp80/tcp_80_http_wpscan.txt"
+
+[*] http on tcp/8000
+
+	[-] (feroxbuster) Multi-threaded recursive directory/file enumeration for web servers using various wordlists:
+
+		feroxbuster -u http://192.168.131.62:8000 -t 10 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x "txt,html,php,asp,aspx,jsp" -v -k -n -e -r -o /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/tcp_8000_http_feroxbuster_dirbuster.txt
+
+	[-] Credential bruteforcing commands (don't run these without modifying them):
+
+		hydra -L "/usr/share/seclists/Usernames/top-usernames-shortlist.txt" -P "/usr/share/seclists/Passwords/darkweb2017-top100.txt" -e nsr -s 8000 -o "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/tcp_8000_http_auth_hydra.txt" http-get://192.168.131.62/path/to/auth/area
+
+		medusa -U "/usr/share/seclists/Usernames/top-usernames-shortlist.txt" -P "/usr/share/seclists/Passwords/darkweb2017-top100.txt" -e ns -n 8000 -O "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/tcp_8000_http_auth_medusa.txt" -M http -h 192.168.131.62 -m DIR:/path/to/auth/area
+
+		hydra -L "/usr/share/seclists/Usernames/top-usernames-shortlist.txt" -P "/usr/share/seclists/Passwords/darkweb2017-top100.txt" -e nsr -s 8000 -o "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/tcp_8000_http_form_hydra.txt" http-post-form://192.168.131.62/path/to/login.php:"username=^USER^&password=^PASS^":"invalid-login-message"
+
+		medusa -U "/usr/share/seclists/Usernames/top-usernames-shortlist.txt" -P "/usr/share/seclists/Passwords/darkweb2017-top100.txt" -e ns -n 8000 -O "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/tcp_8000_http_form_medusa.txt" -M web-form -h 192.168.131.62 -m FORM:/path/to/login.php -m FORM-DATA:"post?username=&password=" -m DENY-SIGNAL:"invalid login message"
+
+	[-] (wpscan) WordPress Security Scanner (useful if WordPress is found):
+
+		wpscan --url http://192.168.131.62:8000/ --no-update -e vp,vt,tt,cb,dbe,u,m --plugins-detection aggressive --plugins-version-detection aggressive -f cli-no-color 2>&1 | tee "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/tcp_8000_http_wpscan.txt"
+

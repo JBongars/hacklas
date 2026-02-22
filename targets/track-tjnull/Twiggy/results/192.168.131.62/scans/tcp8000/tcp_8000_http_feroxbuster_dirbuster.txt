@@ -1,0 +1,347 @@
+Configuration {
+    kind: "configuration",
+    wordlist: "/home/julien/.local/share/AutoRecon/wordlists/dirbuster.txt",
+    config: "/home/julien/.config/feroxbuster/ferox-config.toml",
+    proxy: "",
+    replay_proxy: "",
+    server_certs: [],
+    client_cert: "",
+    client_key: "",
+    target_url: "http://192.168.131.62:8000/",
+    status_codes: [
+        100,
+        101,
+        102,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        226,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        307,
+        308,
+        400,
+        401,
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418,
+        421,
+        422,
+        423,
+        424,
+        426,
+        428,
+        429,
+        431,
+        451,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        510,
+        511,
+        103,
+        425,
+    ],
+    replay_codes: [
+        100,
+        101,
+        102,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        226,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        307,
+        308,
+        400,
+        401,
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418,
+        421,
+        422,
+        423,
+        424,
+        426,
+        428,
+        429,
+        431,
+        451,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        510,
+        511,
+        103,
+        425,
+    ],
+    filter_status: [],
+    client: Client {
+        accepts: Accepts,
+        proxies: [
+            Matcher,
+        ],
+        redirect_policy: "Policy(Custom)",
+        referer: true,
+        default_headers: {
+            "accept": "*/*",
+            "user-agent": "feroxbuster/2.13.1",
+        },
+        reqwest::config::TotalTimeout: 7s,
+    },
+    replay_client: None,
+    threads: 10,
+    timeout: 7,
+    verbosity: 1,
+    silent: false,
+    quiet: true,
+    output_level: Quiet,
+    auto_bail: false,
+    auto_tune: false,
+    requester_policy: Default,
+    json: false,
+    output: "/opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/tcp_8000_http_feroxbuster_dirbuster.txt",
+    debug_log: "",
+    user_agent: "feroxbuster/2.13.1",
+    random_agent: false,
+    redirects: true,
+    insecure: true,
+    extensions: [
+        "txt",
+        "html",
+        "php",
+        "asp",
+        "aspx",
+        "jsp",
+    ],
+    methods: [
+        "GET",
+    ],
+    data: [],
+    headers: {},
+    queries: [],
+    no_recursion: true,
+    extract_links: true,
+    add_slash: false,
+    stdin: false,
+    cached_stdin: [],
+    depth: 4,
+    scan_limit: 0,
+    parallel: 0,
+    rate_limit: 0,
+    filter_size: [],
+    filter_line_count: [],
+    filter_word_count: [],
+    filter_regex: [],
+    dont_filter: false,
+    resumed: false,
+    resume_from: "",
+    save_state: true,
+    time_limit: "",
+    filter_similar: [],
+    url_denylist: [],
+    regex_denylist: [],
+    scope: [
+        Url {
+            scheme: "http",
+            cannot_be_a_base: false,
+            username: "",
+            password: None,
+            host: Some(
+                Ipv4(
+                    192.168.131.62,
+                ),
+            ),
+            port: Some(
+                8000,
+            ),
+            path: "/",
+            query: None,
+            fragment: None,
+        },
+    ],
+    collect_extensions: false,
+    dont_collect: [
+        "woff2",
+        "woff",
+        "ttf",
+        "otf",
+        "eot",
+        "tif",
+        "tiff",
+        "ico",
+        "cur",
+        "bmp",
+        "webp",
+        "svg",
+        "png",
+        "jpg",
+        "jpeg",
+        "jfif",
+        "gif",
+        "avif",
+        "apng",
+        "pjpeg",
+        "pjp",
+        "mov",
+        "wav",
+        "mpg",
+        "mpeg",
+        "mp3",
+        "mp4",
+        "m4a",
+        "m4p",
+        "m4v",
+        "ogg",
+        "webm",
+        "ogv",
+        "oga",
+        "flac",
+        "aac",
+        "3gp",
+        "css",
+        "zip",
+        "xls",
+        "xml",
+        "gz",
+        "tgz",
+    ],
+    collect_backups: false,
+    backup_extensions: [
+        "~",
+        ".bak",
+        ".bak2",
+        ".old",
+        ".1",
+    ],
+    collect_words: false,
+    force_recursion: false,
+    update_app: false,
+    scan_dir_listings: false,
+    request_file: "",
+    protocol: "https",
+    limit_bars: 0,
+    unique: false,
+    response_size_limit: 4194304,
+}
+200      GET        1l       12w      146c http://192.168.131.62:8000/
+404      GET       30l       63w      758c http://192.168.131.62:8000/Documents%20and%20Settings.asp
+404      GET       30l       63w      759c http://192.168.131.62:8000/Documents%20and%20Settings.aspx
+401      GET       30l       59w      753c http://192.168.131.62:8000/events
+404      GET        7l       11w      153c http://192.168.131.62:8000/favicon.ico
+200      GET        1l       12w      146c http://192.168.131.62:8000/index
+401      GET       30l       59w      753c http://192.168.131.62:8000/jobs
+401      GET       30l       59w      753c http://192.168.131.62:8000/keys
+200      GET        1l        6w       43c http://192.168.131.62:8000/login
+500      GET       30l       70w      823c http://192.168.131.62:8000/logout
+404      GET       30l       62w      748c http://192.168.131.62:8000/reports%20list.txt
+404      GET       30l       62w      749c http://192.168.131.62:8000/reports%20list.html
+404      GET       30l       62w      748c http://192.168.131.62:8000/reports%20list.asp
+404      GET       30l       62w      749c http://192.168.131.62:8000/reports%20list.aspx
+200      GET        1l       12w      146c http://192.168.131.62:8000/run
+401      GET       30l       59w      753c http://192.168.131.62:8000/stats
+200      GET        1l       12w      146c http://192.168.131.62:8000/token
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/revoke
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/text/css
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/text/
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/introspect
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/revoke.txt
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/introspect.txt
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/revoke.html
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/revoke.php
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/introspect.html
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/revoke.asp
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/introspect.php
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/revoke.aspx
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/introspect.asp
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/introspect.aspx
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/revoke.jsp
+404      GET       30l       60w      734c http://192.168.131.62:8000/token/introspect.jsp
+500      GET       40l      123w     1455c http://192.168.131.62:8000/anv%C3%A4ndare
+500      GET       40l      123w     1455c http://192.168.131.62:8000/anv%C3%A4ndare.txt
+500      GET       40l      123w     1455c http://192.168.131.62:8000/anv%C3%A4ndare.html
+500      GET       40l      123w     1455c http://192.168.131.62:8000/anv%C3%A4ndare.php
+500      GET       40l      123w     1455c http://192.168.131.62:8000/anv%C3%A4ndare.asp
+500      GET       40l      123w     1455c http://192.168.131.62:8000/anv%C3%A4ndare.aspx
+500      GET       40l      123w     1455c http://192.168.131.62:8000/anv%C3%A4ndare.jsp
+404      GET       30l       62w      742c http://192.168.131.62:8000/contact%20us
+404      GET       30l       62w      746c http://192.168.131.62:8000/contact%20us.txt
+404      GET       30l       62w      747c http://192.168.131.62:8000/contact%20us.html
+404      GET       30l       62w      746c http://192.168.131.62:8000/contact%20us.php
+404      GET       30l       62w      746c http://192.168.131.62:8000/contact%20us.asp
+404      GET       30l       62w      747c http://192.168.131.62:8000/contact%20us.aspx
+404      GET       30l       62w      750c http://192.168.131.62:8000/external%20files.asp
+404      GET       30l       62w      745c http://192.168.131.62:8000/home%20page.asp
+404      GET       30l       62w      746c http://192.168.131.62:8000/home%20page.aspx
+401      GET       30l       59w      753c http://192.168.131.62:8000/hook
+404      GET       30l       62w      751c http://192.168.131.62:8000/planned%20giving.html
+404      GET       30l       62w      750c http://192.168.131.62:8000/planned%20giving.asp
+404      GET       30l       62w      750c http://192.168.131.62:8000/press%20releases.php
+404      GET       30l       62w      750c http://192.168.131.62:8000/press%20releases.asp
+404      GET       30l       62w      751c http://192.168.131.62:8000/press%20releases.aspx
+404      GET       30l       62w      744c http://192.168.131.62:8000/site%20map.php
+404      GET       30l       62w      744c http://192.168.131.62:8000/site%20map.asp
+404      GET       30l       62w      745c http://192.168.131.62:8000/site%20map.aspx
+404      GET       30l       62w      750c http://192.168.131.62:8000/web%20references.txt
+404      GET       30l       62w      750c http://192.168.131.62:8000/web%20references.asp

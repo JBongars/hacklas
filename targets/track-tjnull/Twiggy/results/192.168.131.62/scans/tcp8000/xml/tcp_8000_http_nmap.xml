@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Sat Feb 21 21:17:40 2026 as: nmap -vv -&#45;reason -Pn -T4 -sV -p 8000 &quot;-&#45;script=banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)&quot; -oN /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/tcp_8000_http_nmap.txt -oX /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/xml/tcp_8000_http_nmap.xml 192.168.131.62 -->
+<nmaprun scanner="nmap" args="nmap -vv -&#45;reason -Pn -T4 -sV -p 8000 &quot;-&#45;script=banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)&quot; -oN /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/tcp_8000_http_nmap.txt -oX /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp8000/xml/tcp_8000_http_nmap.xml 192.168.131.62" start="1771679860" startstr="Sat Feb 21 21:17:40 2026" version="7.95" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="1" services="8000"/>
+<verbose level="2"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1771679860"/>
+<taskend task="NSE" time="1771679860"/>
+<taskbegin task="NSE" time="1771679860"/>
+<taskend task="NSE" time="1771679860"/>
+<taskbegin task="NSE" time="1771679860"/>
+<taskend task="NSE" time="1771679860"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1771679860"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1771679860"/>
+<taskbegin task="Connect Scan" time="1771679860"/>
+<taskend task="Connect Scan" time="1771679860" extrainfo="1 total ports"/>
+<taskbegin task="Service scan" time="1771679860"/>
+<taskend task="Service scan" time="1771679871" extrainfo="1 service on 1 host"/>
+<taskbegin task="NSE" time="1771679871"/>
+<taskprogress task="NSE" time="1771679902" percent="99.68" remaining="1" etc="1771679902"/>
+<taskend task="NSE" time="1771679925"/>
+<taskbegin task="NSE" time="1771679925"/>
+<taskend task="NSE" time="1771679925"/>
+<taskbegin task="NSE" time="1771679925"/>
+<taskend task="NSE" time="1771679925"/>
+<host starttime="1771679860" endtime="1771679925"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.131.62" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="8000"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="nginx" version="1.16.1" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx:1.16.1</cpe></service><script id="http-useragent-tester" output="&#xa;  Status for browser useragent: 200&#xa;  Allowed User Agents: &#xa;    Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)&#xa;    libwww&#xa;    lwp-trivial&#xa;    libcurl-agent/1.0&#xa;    PHP/&#xa;    Python-urllib/2.5&#xa;    GT::WWW&#xa;    Snoopy&#xa;    MFC_Tear_Sample&#xa;    HTTP::Lite&#xa;    PHPCrawl&#xa;    URI::Fetch&#xa;    Zend_Http_Client&#xa;    http client&#xa;    PECL::HTTP&#xa;    Wget/1.13.4 (linux-gnu)&#xa;    WWW-Mechanize/1.34"><elem key="Status for browser useragent">200</elem>
+<table key="Allowed User Agents">
+<elem>Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)</elem>
+<elem>libwww</elem>
+<elem>lwp-trivial</elem>
+<elem>libcurl-agent/1.0</elem>
+<elem>PHP/</elem>
+<elem>Python-urllib/2.5</elem>
+<elem>GT::WWW</elem>
+<elem>Snoopy</elem>
+<elem>MFC_Tear_Sample</elem>
+<elem>HTTP::Lite</elem>
+<elem>PHPCrawl</elem>
+<elem>URI::Fetch</elem>
+<elem>Zend_Http_Client</elem>
+<elem>http client</elem>
+<elem>PECL::HTTP</elem>
+<elem>Wget/1.13.4 (linux-gnu)</elem>
+<elem>WWW-Mechanize/1.34</elem>
+</table>
+</script><script id="http-stored-xss" output="Couldn&apos;t find any stored XSS vulnerabilities."/><script id="http-feed" output="Couldn&apos;t find any feeds."/><script id="http-date" output="Sat, 21 Feb 2026 13:17:51 GMT; -30m00s from local time."><elem key="date">2026-02-21T12:47:51+00:00</elem>
+<elem key="delta">-1800.0</elem>
+</script><script id="http-enum" output="&#xa;  /login/: Login page&#xa;  /index/: Potentially interesting folder&#xa;  /stats/: Potentially interesting folder (401 Unauthorized)&#xa;"/><script id="http-malware-host" output="Host appears to be clean"/><script id="http-chrono" output="Request times for /; avg: 157.52ms; min: 155.65ms; max: 159.76ms"/><script id="http-vhosts" output="&#xa;128 names had status 200"/><script id="http-wordpress-users" output="[Error] Wordpress installation was not found. We couldn&apos;t find wp-login.php"/><script id="http-drupal-enum" output="Nothing found amongst the top 100 resources,use -&#45;script-args number=&lt;number|all&gt; for deeper analysis)"/><script id="http-mobileversion-checker" output="No mobile version detected."/><script id="http-vuln-cve2015-1427" output="ERROR: Script execution failed (use -d to debug)"/><script id="http-jsonp-detection" output="Couldn&apos;t find any JSONP endpoints."/><script id="http-methods" output="&#xa;  Supported Methods: GET HEAD POST OPTIONS"><table key="Supported Methods">
+<elem>GET</elem>
+<elem>HEAD</elem>
+<elem>POST</elem>
+<elem>OPTIONS</elem>
+</table>
+</script><script id="http-waf-detect" output="IDS/IPS/WAF detected:&#xa;192.168.131.62:8000/?p4yl04d3=&lt;script&gt;alert(document.cookie)&lt;/script&gt;"/><script id="http-cookie-flags" output="&#xa;  /login/: &#xa;    session_id: &#xa;      httponly flag not set&#xa;  /stats/: &#xa;    session_id: &#xa;      httponly flag not set"><table key="/login/">
+<table key="session_id">
+<elem>httponly flag not set</elem>
+</table>
+</table>
+<table key="/stats/">
+<table key="session_id">
+<elem>httponly flag not set</elem>
+</table>
+</table>
+</script><script id="http-csrf" output="Couldn&apos;t find any CSRF vulnerabilities."/><script id="http-wordpress-enum" output="Nothing found amongst the top 100 resources,use -&#45;script-args search-limit=&lt;number|all&gt; for deeper analysis)"/><script id="http-headers" output="&#xa;  Server: nginx/1.16.1&#xa;  Date: Sat, 21 Feb 2026 13:17:53 GMT&#xa;  Content-Type: application/json&#xa;  Content-Length: 146&#xa;  Connection: close&#xa;  Access-Control-Expose-Headers: GET, POST&#xa;  Vary: Accept-Encoding&#xa;  Allow: GET, HEAD, POST&#xa;  Access-Control-Allow-Credentials: true&#xa;  Access-Control-Allow-Origin: *&#xa;  X-Upstream: salt-api/3000-1&#xa;  &#xa;  (Request type: HEAD)&#xa;"/><script id="http-sitemap-generator" output="&#xa;  Directory structure:&#xa;    /&#xa;      Other: 1&#xa;  Longest directory structure:&#xa;    Depth: 0&#xa;    Dir: /&#xa;  Total files found (by extension):&#xa;    Other: 1&#xa;"/><script id="http-errors" output="Couldn&apos;t find any error pages."/><script id="http-litespeed-sourcecode-download" output="Request with null byte did not work. This web server might not be vulnerable"/><script id="http-devframework" output="Couldn&apos;t determine the underlying framework or CMS. Try increasing &apos;httpspider.maxpagecount&apos; value to spider more pages."/><script id="http-title" output="Site doesn&apos;t have a title (application/json)."></script><script id="http-dombased-xss" output="Couldn&apos;t find any DOM based XSS."/><script id="http-security-headers" output=""></script><script id="http-referer-checker" output="Couldn&apos;t find any cross-domain scripts."/><script id="http-fetch" output="Please enter the complete path of the directory to save data in."><elem key="ERROR">Please enter the complete path of the directory to save data in.</elem>
+</script><script id="http-comments-displayer" output="Couldn&apos;t find any comments."/><script id="http-server-header" output="nginx/1.16.1"><elem>nginx/1.16.1</elem>
+</script></port>
+</ports>
+<times srtt="3421" rttvar="5000" to="100000"/>
+</host>
+<taskbegin task="NSE" time="1771679925"/>
+<taskend task="NSE" time="1771679925"/>
+<taskbegin task="NSE" time="1771679925"/>
+<taskend task="NSE" time="1771679925"/>
+<taskbegin task="NSE" time="1771679925"/>
+<taskend task="NSE" time="1771679925"/>
+<runstats><finished time="1771679925" timestr="Sat Feb 21 21:18:45 2026" summary="Nmap done at Sat Feb 21 21:18:45 2026; 1 IP address (1 host up) scanned in 65.88 seconds" elapsed="65.88" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

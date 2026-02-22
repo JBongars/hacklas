@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Sat Feb 21 22:20:17 2026 as: nmap -sC -sV -vv -oA ./nmap/full -p- -A 192.168.131.62 -->
+<nmaprun scanner="nmap" args="nmap -sC -sV -vv -oA ./nmap/full -p- -A 192.168.131.62" start="1771683617" startstr="Sat Feb 21 22:20:17 2026" version="7.95" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="2"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1771683617"/>
+<taskend task="NSE" time="1771683617"/>
+<taskbegin task="NSE" time="1771683617"/>
+<taskend task="NSE" time="1771683617"/>
+<taskbegin task="NSE" time="1771683617"/>
+<taskend task="NSE" time="1771683617"/>
+<taskbegin task="Ping Scan" time="1771683617"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="192.168.131.62" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskend task="Ping Scan" time="1771683617" extrainfo="1 total hosts"/>
+<taskbegin task="Connect Scan" time="1771683617"/>
+<taskprogress task="Connect Scan" time="1771683648" percent="20.53" remaining="121" etc="1771683768"/>
+<taskprogress task="Connect Scan" time="1771683678" percent="49.06" remaining="64" etc="1771683741"/>
+<taskprogress task="Connect Scan" time="1771683708" percent="74.63" remaining="31" etc="1771683739"/>
+<taskend task="Connect Scan" time="1771683739" extrainfo="65535 total ports"/>
+<taskbegin task="Service scan" time="1771683739"/>
+<taskend task="Service scan" time="1771683750" extrainfo="6 services on 1 host"/>
+<taskbegin task="NSE" time="1771683750"/>
+<taskend task="NSE" time="1771683759"/>
+<taskbegin task="NSE" time="1771683759"/>
+<taskend task="NSE" time="1771683759"/>
+<taskbegin task="NSE" time="1771683759"/>
+<taskend task="NSE" time="1771683759"/>
+<host starttime="1771683617" endtime="1771683759"><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="192.168.131.62" addrtype="ipv4"/>
+<hostnames>
+<hostname name="twiggy.offsec" type="PTR"/>
+</hostnames>
+<ports><extraports state="filtered" count="65529">
+<extrareasons reason="no-response" count="65529" proto="tcp" ports="1-21,23-52,54-79,81-4504,4507-7999,8001-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ssh" product="OpenSSH" version="7.4" extrainfo="protocol 2.0" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:7.4</cpe></service><script id="ssh-hostkey" output="&#xa;  2048 44:7d:1a:56:9b:68:ae:f5:3b:f6:38:17:73:16:5d:75 (RSA)&#xa;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCZz8rKSxgnT5mqHeBPqGlXFj2JJdq21roV/2M8/+0F5/5D1XsaXmbktDpKILFdBcYnLtPxWstxPq+FTbWAJad2uk3BPYWRxidK2dOozE5rKLCyxtkEqs/lO09pM6VKQUi83y5wMwI+9Akkir0AMruuFUSpeCIBt/L98g8OYxzyTsylQATnPxJrrQOWGUQYAvX6jIs25n6d3rmbXk/crg1ZfAVFEHEeR9Y6Bjc2o5YWjMp3XbOZyC4yYseoM6eH2yCSDwu1DzPYrU6cNMfxBf863w1uyhiFk3eIb5jud3kfoxIq6t5JU2DXNhEd4rdXuuinZUSxWiCpHLZ1FCi4tkX5&#xa;  256 1c:78:9d:83:81:52:f4:b0:1d:8e:32:03:cb:a6:18:93 (ECDSA)&#xa;ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBA1gj1q7mOswnou9RvKwuX8S7WFBhz2NlaSIpYPQmM0I/vqb4T459PgJcMaJOE+WmPiMnDSFsyV3C6YszM754Hc=&#xa;  256 08:c9:12:d9:7b:98:98:c8:b3:99:7a:19:82:2e:a3:ea (ED25519)&#xa;ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzTSyInONbcDxdYULbDvI/HyrQm9m9M5b6Z825jnBEF"><table>
+<elem key="fingerprint">447d1a569b68aef53bf6381773165d75</elem>
+<elem key="key">AAAAB3NzaC1yc2EAAAADAQABAAABAQCZz8rKSxgnT5mqHeBPqGlXFj2JJdq21roV/2M8/+0F5/5D1XsaXmbktDpKILFdBcYnLtPxWstxPq+FTbWAJad2uk3BPYWRxidK2dOozE5rKLCyxtkEqs/lO09pM6VKQUi83y5wMwI+9Akkir0AMruuFUSpeCIBt/L98g8OYxzyTsylQATnPxJrrQOWGUQYAvX6jIs25n6d3rmbXk/crg1ZfAVFEHEeR9Y6Bjc2o5YWjMp3XbOZyC4yYseoM6eH2yCSDwu1DzPYrU6cNMfxBf863w1uyhiFk3eIb5jud3kfoxIq6t5JU2DXNhEd4rdXuuinZUSxWiCpHLZ1FCi4tkX5</elem>
+<elem key="bits">2048</elem>
+<elem key="type">ssh-rsa</elem>
+</table>
+<table>
+<elem key="fingerprint">1c789d838152f4b01d8e3203cba61893</elem>
+<elem key="key">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBA1gj1q7mOswnou9RvKwuX8S7WFBhz2NlaSIpYPQmM0I/vqb4T459PgJcMaJOE+WmPiMnDSFsyV3C6YszM754Hc=</elem>
+<elem key="bits">256</elem>
+<elem key="type">ecdsa-sha2-nistp256</elem>
+</table>
+<table>
+<elem key="fingerprint">08c912d97b9898c8b3997a19822ea3ea</elem>
+<elem key="key">AAAAC3NzaC1lZDI1NTE5AAAAIBzTSyInONbcDxdYULbDvI/HyrQm9m9M5b6Z825jnBEF</elem>
+<elem key="bits">256</elem>
+<elem key="type">ssh-ed25519</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="domain" product="NLnet Labs NSD" method="probed" conf="10"><cpe>cpe:/a:nlnetlabs:nsd</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="nginx" version="1.16.1" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx:1.16.1</cpe></service><script id="http-server-header" output="nginx/1.16.1"><elem>nginx/1.16.1</elem>
+</script><script id="http-title" output="Home | Mezzanine"><elem key="title">Home | Mezzanine</elem>
+</script><script id="http-methods" output="&#xa;  Supported Methods: GET HEAD OPTIONS"><table key="Supported Methods">
+<elem>GET</elem>
+<elem>HEAD</elem>
+<elem>OPTIONS</elem>
+</table>
+</script><script id="http-favicon" output="Unknown favicon MD5: 11FB4799192313DD5474A343D9CC0A17"/></port>
+<port protocol="tcp" portid="4505"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="zmtp" product="ZeroMQ ZMTP 2.0" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="4506"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="zmtp" product="ZeroMQ ZMTP 2.0" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="8000"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="nginx" version="1.16.1" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx:1.16.1</cpe></service><script id="http-methods" output="&#xa;  Supported Methods: GET HEAD POST OPTIONS"><table key="Supported Methods">
+<elem>GET</elem>
+<elem>HEAD</elem>
+<elem>POST</elem>
+<elem>OPTIONS</elem>
+</table>
+</script><script id="http-open-proxy" output="Proxy might be redirecting requests"/><script id="http-title" output="Site doesn&apos;t have a title (application/json)."></script><script id="http-server-header" output="nginx/1.16.1"><elem>nginx/1.16.1</elem>
+</script></port>
+</ports>
+<times srtt="6490" rttvar="1898" to="100000"/>
+</host>
+<taskbegin task="NSE" time="1771683759"/>
+<taskend task="NSE" time="1771683759"/>
+<taskbegin task="NSE" time="1771683759"/>
+<taskend task="NSE" time="1771683759"/>
+<taskbegin task="NSE" time="1771683759"/>
+<taskend task="NSE" time="1771683759"/>
+<runstats><finished time="1771683759" timestr="Sat Feb 21 22:22:39 2026" summary="Nmap done at Sat Feb 21 22:22:39 2026; 1 IP address (1 host up) scanned in 142.92 seconds" elapsed="142.92" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Sat Feb 21 21:17:39 2026 as: nmap -vv -&#45;reason -Pn -T4 -sV -p 53 &quot;-&#45;script=banner,(dns* or ssl*) and not (brute or broadcast or dos or external or fuzzer)&quot; -oN /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp53/tcp_53_dns_nmap.txt -oX /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp53/xml/tcp_53_dns_nmap.xml 192.168.131.62 -->
+<nmaprun scanner="nmap" args="nmap -vv -&#45;reason -Pn -T4 -sV -p 53 &quot;-&#45;script=banner,(dns* or ssl*) and not (brute or broadcast or dos or external or fuzzer)&quot; -oN /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp53/tcp_53_dns_nmap.txt -oX /opt/development/hacklas/targets/track-tjnull/Twiggy/results/192.168.131.62/scans/tcp53/xml/tcp_53_dns_nmap.xml 192.168.131.62" start="1771679859" startstr="Sat Feb 21 21:17:39 2026" version="7.95" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="1" services="53"/>
+<verbose level="2"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1771679860"/>
+<taskend task="NSE" time="1771679860"/>
+<taskbegin task="NSE" time="1771679860"/>
+<taskend task="NSE" time="1771679860"/>
+<taskbegin task="NSE" time="1771679860"/>
+<taskend task="NSE" time="1771679860"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1771679860"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1771679860"/>
+<taskbegin task="Connect Scan" time="1771679860"/>
+<taskend task="Connect Scan" time="1771679860" extrainfo="1 total ports"/>
+<taskbegin task="Service scan" time="1771679860"/>
+<taskend task="Service scan" time="1771679866" extrainfo="1 service on 1 host"/>
+<taskbegin task="NSE" time="1771679866"/>
+<taskend task="NSE" time="1771679881"/>
+<taskbegin task="NSE" time="1771679881"/>
+<taskend task="NSE" time="1771679881"/>
+<taskbegin task="NSE" time="1771679881"/>
+<taskend task="NSE" time="1771679881"/>
+<host starttime="1771679860" endtime="1771679881"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.131.62" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="domain" product="NLnet Labs NSD" method="probed" conf="10"><cpe>cpe:/a:nlnetlabs:nsd</cpe></service><script id="dns-nsec-enum" output="Can&apos;t determine domain for host 192.168.131.62; use dns-nsec-enum.domains script arg."/><script id="dns-nsec3-enum" output="Can&apos;t determine domain for host 192.168.131.62; use dns-nsec3-enum.domains script arg."/></port>
+</ports>
+<hostscript><script id="dns-brute" output="Can&apos;t guess domain of &quot;192.168.131.62&quot;; use dns-brute.domain script argument."/></hostscript><times srtt="8554" rttvar="8554" to="100000"/>
+</host>
+<taskbegin task="NSE" time="1771679881"/>
+<taskend task="NSE" time="1771679881"/>
+<taskbegin task="NSE" time="1771679881"/>
+<taskend task="NSE" time="1771679881"/>
+<taskbegin task="NSE" time="1771679881"/>
+<taskend task="NSE" time="1771679881"/>
+<runstats><finished time="1771679881" timestr="Sat Feb 21 21:18:01 2026" summary="Nmap done at Sat Feb 21 21:18:01 2026; 1 IP address (1 host up) scanned in 21.54 seconds" elapsed="21.54" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

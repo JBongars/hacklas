@@ -1,0 +1,16 @@
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          192.168.131.62
++ Target Hostname:    192.168.131.62
++ Target Port:        80
++ Start Time:         2026-02-21 21:17:40 (GMT8)
+---------------------------------------------------------------------------
++ Server: nginx/1.16.1
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ /sitemap.xml: This gives a nice listing of the site content.
++ /#wp-config.php#: #wp-config.php# file found. This file contains the credentials.
++ 7730 requests: 0 error(s) and 3 item(s) reported on remote host
++ End Time:           2026-02-21 21:56:07 (GMT8) (2307 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested

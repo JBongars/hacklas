@@ -1,0 +1,5 @@
+# Nmap 7.95 scan initiated Sat Feb 21 22:20:17 2026 as: nmap -sC -sV -vv -oA ./nmap/full -p- -A 192.168.131.62
+# Ports scanned: TCP(65535;1-65535) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 192.168.131.62 (twiggy.offsec)	Status: Up
+Host: 192.168.131.62 (twiggy.offsec)	Ports: 22/open/tcp//ssh//OpenSSH 7.4 (protocol 2.0)/, 53/open/tcp//domain//NLnet Labs NSD/, 80/open/tcp//http//nginx 1.16.1/, 4505/open/tcp//zmtp//ZeroMQ ZMTP 2.0/, 4506/open/tcp//zmtp//ZeroMQ ZMTP 2.0/, 8000/open/tcp//http//nginx 1.16.1/	Ignored State: filtered (65529)
+# Nmap done at Sat Feb 21 22:22:39 2026 -- 1 IP address (1 host up) scanned in 142.92 seconds
