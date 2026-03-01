@@ -25,3 +25,6 @@
 [submodule "external-tools/AutoRecon"]
 	path = external-tools/AutoRecon
 	url = https://github.com/AutoRecon/AutoRecon.git
+[submodule "external/internal-all-the-things"]
+	path = external/internal-all-the-things
+	url = https://github.com/swisskyrepo/InternalAllTheThings.git

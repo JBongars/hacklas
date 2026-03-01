@@ -92,4 +92,6 @@ https://github.com/0dayCTF/reverse-shell-generator
 
 ## Internet all the things
 
+~/.hacklas/external/internal-all-the-things/docs/cheatsheets/shell-reverse-cheatsheet.md
+
 https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#summary
