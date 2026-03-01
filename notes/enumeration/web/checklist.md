@@ -87,27 +87,32 @@
 
 ## Enumeration
 
-- [ ] subdirectory
-  - [ ] is there a `/robots.txt`
-  - [ ] Check static file discovery
-    - feroxbuster `feroxbuster -u http://target.htb -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt -x php,html,txt,zip,bak`
-    - gobuster `gobuster dir -u http://target.htb -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -x php,html,txt,zip,bak -t 50`
-    - ffuf `ffuf -u http://target.htb/FUZZ -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt -fc 404 -e .php,.html,.txt,.zip,.bak`
-  - [ ] is there `/api/` or similar directory?
-  - [ ] is there `/version`
-  - [ ] is there `/version.txt`
-  - [ ] is there `/status`
-  - [ ] is there `/ready`
-  - [ ] is there `/admin`
-  - [ ] is there `/backup`
-  - [ ] is there `/.git` - if yes: `git-dumper http://target.htb/.git /tmp/dump`
-  - [ ] Check `.DS_Store` (Mac), `.svn`, `.bzr`, `.hg`
-  - [ ] LFI possible `/../../../../../../../../../../etc/passwd`
-  - [ ] spider explore web directories
-    - feroxbuster recursive `feroxbuster -u http://target.htb -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt --depth 3`
-    - gobuster recursive `gobuster dir -u http://target.htb -w /usr/share/seclists/Discovery/Web-Content/common.txt -r`
-    - ZAP* preferred but takes a while to run
-    - hakrawler `echo http://target.htb | hakrawler -d 3`
+### Subdirectories
+
+- [ ] is there a `/robots.txt`
+- [ ] Check static file discovery
+  - feroxbuster `feroxbuster -u http://target.htb -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt -x php,html,txt,zip,bak`
+  - gobuster `gobuster dir -u http://target.htb -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -x php,html,txt,zip,bak -t 50`
+  - ffuf `ffuf -u http://target.htb/FUZZ -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt -fc 404 -e .php,.html,.txt,.zip,.bak`
+- [ ] is there `/api/` or similar directory?
+- [ ] is there `/version`
+- [ ] is there `/version.txt`
+- [ ] is there `/status`
+- [ ] is there `/ready`
+- [ ] is there `/admin`
+- [ ] is there `/backup`
+- [ ] is there `/.git` - if yes: `git-dumper http://target.htb/.git /tmp/dump`
+- [ ] Check `.DS_Store` (Mac), `.svn`, `.bzr`, `.hg`
+- [ ] LFI possible `/../../../../../../../../../../etc/passwd`
+- [ ] spider explore web directories
+  - feroxbuster recursive `feroxbuster -u http://target.htb -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt --depth 3`
+  - gobuster recursive `gobuster dir -u http://target.htb -w /usr/share/seclists/Discovery/Web-Content/common.txt -r`
+  - ZAP* preferred but takes a while to run
+  - hakrawler `echo http://target.htb | hakrawler -d 3`
+- [ ] Check for extensions `feroxbuster -u http://target.com -x txt,config,xml,php,bak,old`
+
+### Other
+
 - [ ] Can you upload files !FILE_UPLOAD?
   - [ ] Restrictions on extension?
   - [ ] Restrictions on size?

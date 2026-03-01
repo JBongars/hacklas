@@ -1,0 +1,4 @@
+# Nmap 7.95 scan initiated Sat Feb 28 13:57:53 2026 as: nmap -sC -sV -oA nmap-1.quick 192.168.121.188
+Host: 192.168.121.188 ()	Status: Up
+Host: 192.168.121.188 ()	Ports: 80/open/tcp//http//Apache httpd 2.4.49 ((Unix))/	Ignored State: closed (999)
+# Nmap done at Sat Feb 28 13:58:07 2026 -- 1 IP address (1 host up) scanned in 13.83 seconds

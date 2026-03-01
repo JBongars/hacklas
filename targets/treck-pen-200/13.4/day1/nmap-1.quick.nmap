@@ -1,0 +1,13 @@
+# Nmap 7.95 scan initiated Sat Feb 28 13:57:53 2026 as: nmap -sC -sV -oA nmap-1.quick 192.168.121.188
+Nmap scan report for 192.168.121.188
+Host is up (0.070s latency).
+Not shown: 999 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.49 ((Unix))
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Apache/2.4.49 (Unix)
+|_http-title: Paradigm Shifts
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Feb 28 13:58:07 2026 -- 1 IP address (1 host up) scanned in 13.83 seconds

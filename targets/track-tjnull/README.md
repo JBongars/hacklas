@@ -51,7 +51,7 @@
 | Done | Name          | Difficulty   | Link                                                                                     | Date | OS    | Remarks |
 | ---- | ------------- | ------------ | ---------------------------------------------------------------------------------------- | ---- | ----- | ------- |
 | [-]  | Twiggy        | Easy         | [Twiggy](https://portal.offsec.com/machine/twiggy-244/overview/details)                  |      | Linux |         |
-| [ ]  | Exfiltrated   | Easy         | [Exfiltrated](https://portal.offsec.com/machine/exfiltrated-17398/overview/details)      |      | Linux |         |
+| [x]  | Exfiltrated   | Easy         | [Exfiltrated](https://portal.offsec.com/machine/exfiltrated-17398/overview/details)      |      | Linux |         |
 | [ ]  | Pelican       | Intermediate | [Pelican](https://portal.offsec.com/machine/pelican-440/overview/details)                |      | Linux |         |
 | [ ]  | Astronaut     | Easy         | [Astronaut](https://portal.offsec.com/machine/astronaut-49479/overview/details)          |      | Linux |         |
 | [ ]  | Boolean       | Intermediate | [Boolean](https://portal.offsec.com/machine/boolean-42552/overview/details)              |      | Linux |         |
